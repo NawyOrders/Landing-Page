@@ -6,8 +6,8 @@ import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/800.css';
 import '@fontsource/yellowtail/400.css';
 import './globals.css';
-import UiProvider from '../components/UiProvider';
 import ScrollReveal from '../components/ScrollReveal';
+import StartRedirect from '../components/StartRedirect';
 import PwaRegister from '../components/PwaRegister';
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
@@ -51,11 +51,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a className="skip-link" href="#main">
           Skip to content
         </a>
-        <UiProvider>
-          <ScrollReveal />
-          <PwaRegister />
-          {children}
-        </UiProvider>
+        <ScrollReveal />
+        <StartRedirect />
+        <PwaRegister />
+        {children}
       </body>
     </html>
   );

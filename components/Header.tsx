@@ -4,17 +4,16 @@ import { useEffect, useState } from 'react';
 import LogoMark from './LogoMark';
 import RegisterLink from './RegisterLink';
 import { ArrowIcon } from './Icons';
-import { useUi } from './UiProvider';
 
 const navLinks = [
   { id: 'home', label: 'Home', href: '#home' },
   { id: 'features', label: 'Features', href: '#features' },
   { id: 'how-to-join', label: 'How to join', href: '#how-to-join' },
   { id: 'pricing', label: 'Plans', href: '#pricing' },
+  { id: 'faq', label: 'FAQ', href: '#faq' },
 ];
 
 export default function Header() {
-  const { openFaq } = useUi();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [active, setActive] = useState<string>('home');
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -49,11 +48,6 @@ export default function Header() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [menuOpen]);
 
-  function handleFaq() {
-    setMenuOpen(false);
-    openFaq();
-  }
-
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <div className="header-inner">
@@ -71,9 +65,6 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <button type="button" className="nav-link nav-link--button" onClick={handleFaq}>
-            FAQ
-          </button>
         </nav>
 
         <div className="header-actions">
@@ -109,9 +100,6 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
-            <button type="button" className="mobile-link mobile-link--button" onClick={handleFaq}>
-              FAQ
-            </button>
           </nav>
           <RegisterLink
             className="btn btn--primary mobile-cta"

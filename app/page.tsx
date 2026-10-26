@@ -6,6 +6,7 @@ import Brand from '../components/Brand';
 import DarkCta from '../components/DarkCta';
 import Pricing from '../components/Pricing';
 import Testimonials from '../components/Testimonials';
+import Faq from '../components/Faq';
 import QrCta from '../components/QrCta';
 import Footer from '../components/Footer';
 
@@ -21,6 +22,7 @@ export default function Home() {
         <DarkCta />
         <Pricing />
         <Testimonials />
+        <Faq />
         <QrCta />
       </main>
       <Footer />
