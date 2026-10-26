@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "generate:icons": "node scripts/generate-pwa-icons.mjs"
     "generate:qr": "node scripts/generate-register-qr.mjs"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "sharp": "^0.35.5",
     "qrcode": "^1.5.4",
     "typescript": "^7.0.2"
   }
