@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "generate:icons": "node scripts/generate-pwa-icons.mjs"
+    "generate:icons": "node scripts/generate-pwa-icons.mjs",
     "generate:qr": "node scripts/generate-register-qr.mjs"
   },
   "dependencies": {
