@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import LogoMark from './LogoMark';
-import LeadButton from './LeadButton';
+import RegisterLink from './RegisterLink';
 import { ArrowIcon } from './Icons';
 import { useUi } from './UiProvider';
 
@@ -77,10 +77,10 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <LeadButton className="btn btn--primary header-cta">
+          <RegisterLink className="btn btn--primary header-cta">
             Get Started
             <ArrowIcon />
-          </LeadButton>
+          </RegisterLink>
           <button
             type="button"
             className={`menu-toggle${menuOpen ? ' is-open' : ''}`}
@@ -113,13 +113,13 @@ export default function Header() {
               FAQ
             </button>
           </nav>
-          <LeadButton
+          <RegisterLink
             className="btn btn--primary mobile-cta"
             onClick={() => setMenuOpen(false)}
           >
             Get Started
             <ArrowIcon />
-          </LeadButton>
+          </RegisterLink>
         </div>
       )}
     </header>

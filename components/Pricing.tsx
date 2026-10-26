@@ -2,7 +2,7 @@
 
 import { useId, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { CheckIcon } from './Icons';
-import LeadButton from './LeadButton';
+import RegisterLink from './RegisterLink';
 
 const plans = [
   {
@@ -177,9 +177,9 @@ export default function Pricing() {
               </ul>
 
               <div className="plan-cta">
-                <LeadButton className="btn btn--primary plan-btn">
+                <RegisterLink className="btn btn--primary plan-btn">
                   {plan.cta}
-                </LeadButton>
+                </RegisterLink>
               </div>
             </article>
           ))}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import RegisterLink from './RegisterLink';
 
 const faqs = [
   {
@@ -28,10 +29,9 @@ const faqs = [
 type FaqDialogProps = {
   open: boolean;
   onClose: () => void;
-  onTalkToUs: () => void;
 };
 
-export default function FaqDialog({ open, onClose, onTalkToUs }: FaqDialogProps) {
+export default function FaqDialog({ open, onClose }: FaqDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -110,9 +110,7 @@ export default function FaqDialog({ open, onClose, onTalkToUs }: FaqDialogProps)
 
         <div className="faq-cta">
           <p>Still have a question?</p>
-          <button type="button" className="btn btn--primary" onClick={onTalkToUs}>
-            Talk to our team
-          </button>
+          <RegisterLink className="btn btn--primary">Talk to our team</RegisterLink>
         </div>
       </div>
     </dialog>
