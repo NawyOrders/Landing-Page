@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#e43820" />
+    <meta name="robots" content="noindex" />
+    <title>You're offline | Nawy Orders</title>
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        color-scheme: light;
+        --red: #e43820;
+        --red-bright: #f04a2b;
+        --red-deep: #dd301a;
+        --ink: #1a0f0a;
+        --muted: #6b5a50;
+        --cream: #fbf0e2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100svh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom));
+        background:
+          radial-gradient(circle at 15% 10%, #ffe2d8 0, transparent 34%),
+          radial-gradient(circle at 90% 90%, #ffd4bf 0, transparent 30%),
+          var(--cream);
+        color: var(--ink);
+        font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      main {
+        width: min(100%, 430px);
+        padding: 42px 30px;
+        border: 1px solid #efd8cf;
+        border-radius: 28px;
+        background: #fff;
+        box-shadow: 0 24px 70px rgba(73, 32, 17, 0.14);
+        text-align: center;
+      }
+
+      .logo {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 22px;
+        filter: drop-shadow(0 8px 18px rgba(228, 56, 32, 0.22));
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--red);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(28px, 7vw, 36px);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+      }
+
+      p {
+        margin: 14px auto 0;
+        max-width: 32ch;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 50px;
+        margin-top: 26px;
+        padding: 0 26px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--red-bright), var(--red-deep));
+        box-shadow: 0 12px 26px rgba(228, 56, 32, 0.28);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .button:focus-visible {
+        outline: 3px solid rgba(228, 56, 32, 0.35);
+        outline-offset: 4px;
+      }
+
+      .hint {
+        margin-top: 18px;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <svg class="logo" viewBox="0 0 48 48" aria-hidden="true">
+        <defs>
+          <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f04a2b" />
+            <stop offset="1" stop-color="#dd301a" />
+          </linearGradient>
+        </defs>
+        <rect width="48" height="48" rx="11" fill="url(#brand)" />
+        <path
+          d="M14 27.5c2.1 5.4 5.8 8 10.1 8s8-2.6 10.1-8"
+          fill="none"
+          stroke="#fff"
+          stroke-width="3.1"
+          stroke-linecap="round"
+        />
+        <path
+          d="M26.4 20.4c-2.9-2.3-2.7-4.7.2-7.1 1.7-1.4 2.5-2.9 2.3-4.6.9 1.5 1.7 3.2 1.7 4.7 0 2.1-1.2 3.3-2.8 4.1-1.7.8-2.2 1.8-1.4 2.9"
+          fill="none"
+          stroke="#fff"
+          stroke-width="2.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <p class="eyebrow">Nawy Orders</p>
+      <h1>You're offline</h1>
+      <p>Check your connection and try again. Your restaurant and plans are waiting for you.</p>
+      <a class="button" href="/">Try again</a>
+      <p class="hint">This page is available without an internet connection.</p>
+    </main>
+  </body>
+</html>
