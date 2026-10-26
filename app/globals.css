@@ -255,7 +255,18 @@ section[id] {
 .header-brand {
   display: inline-flex;
   flex: 0 0 auto;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
+}
+
+.header-brand-name {
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .logo-mark {
@@ -2257,6 +2268,18 @@ section[id] {
 }
 
 @media (max-width: 1179px) {
+  .header-inner {
+    gap: 22px;
+  }
+
+  .header-brand-name {
+    font-size: 18px;
+  }
+
+  .main-nav {
+    gap: 24px;
+  }
+
   .flank {
     display: none;
   }
