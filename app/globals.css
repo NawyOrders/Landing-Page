@@ -4,6 +4,7 @@
   --red: #e43820;
   --red-bright: #f04a2b;
   --red-deep: #cf2d17;
+  --red-strong: #d6331c;
   --orange: #ee572c;
   --gold: #f5a91c;
   --ink: #1a0f0a;
@@ -28,10 +29,6 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-}
-
-html.dialog-open {
-  overflow: hidden;
 }
 
 body {
@@ -89,7 +86,7 @@ section[id] {
   z-index: 200;
   padding: 12px 20px;
   border-radius: 999px;
-  background: var(--red);
+  background: var(--red-strong);
   color: #fff;
   font-size: 14px;
   font-weight: 600;
@@ -123,7 +120,7 @@ section[id] {
 }
 
 .accent {
-  color: var(--red);
+  color: var(--red-strong);
 }
 
 /* ---------- buttons & chips ---------- */
@@ -147,7 +144,7 @@ section[id] {
   padding: 21px 34px;
   font-size: 17px;
   color: #fff;
-  background: #e43820;
+  background: var(--red-strong);
   box-shadow: 0 14px 24px -16px rgba(228, 56, 32, 0.5);
   transition:
     transform 0.25s ease,
@@ -297,11 +294,11 @@ section[id] {
 }
 
 .nav-link:hover {
-  color: var(--red);
+  color: var(--red-strong);
 }
 
 .nav-link.is-active {
-  color: var(--red);
+  color: var(--red-strong);
   font-weight: 600;
 }
 
@@ -412,7 +409,7 @@ section[id] {
 }
 
 .mobile-link.is-active {
-  color: var(--red);
+  color: var(--red-strong);
   font-weight: 600;
 }
 
@@ -1195,7 +1192,7 @@ section[id] {
   left: 4px;
   width: calc(50% - 4px);
   border-radius: 999px;
-  background: #e43820;
+  background: var(--red-strong);
   box-shadow: 0 8px 16px -10px rgba(170, 30, 10, 0.55);
   transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.3, 1);
 }
@@ -1917,109 +1914,102 @@ section[id] {
   transform: translateY(-2px);
 }
 
-/* ---------- dialogs ---------- */
+/* ---------- faq ---------- */
 
-.modal {
-  width: min(680px, calc(100vw - 32px));
-  max-width: none;
-  max-height: none;
-  padding: 0;
-  border: 0;
-  overflow: visible;
-  background: transparent;
-  color: var(--ink);
-}
-
-.modal::backdrop {
-  background: rgba(24, 14, 8, 0.55);
-  backdrop-filter: blur(4px);
-}
-
-.modal-card {
+.faq-section {
   position: relative;
-  max-height: min(88vh, 880px);
-  padding: 44px 44px 40px;
-  overflow: auto;
-  border-radius: 30px;
-  background: #fffdfa;
-  box-shadow: 0 50px 100px -30px rgba(0, 0, 0, 0.55);
+  padding: 54px 0 118px;
 }
 
-.modal-close {
+.faq-section::before {
+  content: '';
   position: absolute;
-  top: 20px;
-  right: 20px;
-  display: grid;
-  width: 42px;
-  height: 42px;
-  padding: 0;
-  place-items: center;
-  border: 1px solid #f0e2da;
+  top: 0;
+  left: 50%;
+  width: min(980px, 92vw);
+  height: 560px;
   border-radius: 50%;
-  color: #3a2b22;
-  background: #fff7f0;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  background: radial-gradient(closest-side, rgba(255, 236, 233, 0.78), transparent 72%);
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 
-.modal-close:hover {
-  color: #fff;
-  background: var(--red);
+.faq-head {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
 }
 
-.modal-close svg {
-  width: 20px;
-  height: 20px;
+.faq-head .chip {
+  margin-bottom: 16px;
 }
 
-.modal .chip {
-  margin-bottom: 14px;
+.faq-head .section-title {
+  font-size: 38px;
+  letter-spacing: -0.03em;
 }
 
-.modal h2 {
-  padding-right: 30px;
-  font-size: clamp(26px, 3vw, 34px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-}
-
-.modal-sub {
+.faq-head .section-sub {
   margin-top: 14px;
-  font-size: 16px;
-  line-height: 1.65;
-  color: #5a463b;
 }
 
-.modal-sub strong {
-  color: var(--red);
-  font-weight: 600;
+.faq-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(290px, 0.72fr);
+  gap: 28px;
+  align-items: start;
+  margin-top: 50px;
 }
 
 .faq-list {
   display: grid;
-  gap: 10px;
-  margin-top: 24px;
+  gap: 12px;
 }
 
 .faq-list details {
-  padding: 0 18px;
+  padding: 0 24px;
   border: 1px solid #eedfd7;
-  border-radius: 14px;
+  border-radius: 16px;
   background: #fff;
+  box-shadow: 0 18px 34px -34px rgba(60, 30, 10, 0.45);
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.faq-list details:hover {
+  border-color: #ebc9bd;
+}
+
+.faq-list details[open] {
+  border-color: #f0b3a4;
+  background: #fffdfa;
+  box-shadow: 0 24px 42px -36px rgba(60, 30, 10, 0.55);
 }
 
 .faq-list summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 16px 0;
+  gap: 16px;
+  padding: 21px 0;
   color: #251a13;
-  font-size: 15.5px;
+  font-size: 17px;
   font-weight: 600;
+  line-height: 1.4;
   cursor: pointer;
   list-style: none;
+}
+
+.faq-list summary:focus-visible {
+  border-radius: 4px;
+  outline: 3px solid rgba(214, 51, 28, 0.35);
+  outline-offset: 4px;
 }
 
 .faq-list summary::-webkit-details-marker {
@@ -2029,7 +2019,7 @@ section[id] {
 .faq-list summary svg {
   flex: 0 0 20px;
   width: 20px;
-  color: var(--red);
+  color: var(--red-strong);
   transition: transform 0.2s ease;
 }
 
@@ -2038,29 +2028,88 @@ section[id] {
 }
 
 .faq-list details p {
-  margin: 0 0 16px;
-  font-size: 14.5px;
+  max-width: 92%;
+  margin: 0 0 20px;
+  font-size: 15.5px;
   line-height: 1.7;
   color: #5a463b;
 }
 
-.faq-cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 26px;
+.faq-aside {
+  position: sticky;
+  top: 108px;
+  padding: 34px 30px 30px;
+  overflow: hidden;
+  border-radius: 26px;
+  color: #fff;
+  background:
+    radial-gradient(80% 70% at 100% 0%, rgba(228, 56, 32, 0.24), transparent 68%),
+    var(--ink);
+  box-shadow: 0 30px 55px -35px rgba(26, 15, 10, 0.8);
 }
 
-.faq-cta p {
-  font-size: 15px;
-  color: #5a463b;
+.faq-aside::after {
+  content: '';
+  position: absolute;
+  right: -46px;
+  bottom: -64px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(228, 56, 32, 0.55), transparent 70%);
+  pointer-events: none;
 }
 
-.faq-cta .btn--primary {
-  padding: 16px 26px;
+.faq-aside-eyebrow {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: #ffb39f;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.faq-aside h3 {
+  position: relative;
+  z-index: 1;
+  max-width: 240px;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+}
+
+.faq-aside p {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.76);
   font-size: 15px;
+  line-height: 1.7;
+}
+
+.faq-aside .btn {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-top: 24px;
+  padding: 17px 22px;
+  font-size: 15px;
+}
+
+.faq-aside .btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.faq-aside .faq-aside-note {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12.5px;
+  text-align: center;
 }
 
 /* ---------- reveal ---------- */
@@ -2454,6 +2503,16 @@ section[id] {
 
   .footer-brand p {
     max-width: 520px;
+  }
+
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .faq-aside {
+    position: relative;
+    top: auto;
   }
 }
 
@@ -2983,28 +3042,53 @@ section[id] {
     height: 40px;
   }
 
-  .modal {
-    width: calc(100vw - 24px);
+  .faq-section {
+    padding: 38px 0 84px;
   }
 
-  .modal-card {
-    padding: 30px 22px 26px;
-    border-radius: 24px;
-    max-height: 90vh;
+  .faq-head .section-title {
+    font-size: 29px;
   }
 
-  .modal h2 {
-    padding-right: 24px;
-    font-size: 25px;
+  .faq-head .section-sub {
+    font-size: 16px;
   }
 
-  .faq-cta {
-    align-items: flex-start;
-    flex-direction: column;
+  .faq-layout {
+    margin-top: 32px;
   }
 
-  .faq-cta .btn--primary {
-    width: 100%;
+  .faq-list {
+    gap: 10px;
+  }
+
+  .faq-list details {
+    padding: 0 18px;
+    border-radius: 14px;
+  }
+
+  .faq-list summary {
+    padding: 18px 0;
+    font-size: 15.5px;
+  }
+
+  .faq-list details p {
+    max-width: none;
+    margin-bottom: 17px;
+    font-size: 14.5px;
+  }
+
+  .faq-aside {
+    padding: 28px 24px 26px;
+    border-radius: 22px;
+  }
+
+  .faq-aside h3 {
+    font-size: 24px;
+  }
+
+  .faq-aside p {
+    font-size: 14.5px;
   }
 }
 
