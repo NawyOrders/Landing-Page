@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import LeadButton from './LeadButton';
+import RegisterLink from './RegisterLink';
 
 export default function DarkCta() {
   return (
@@ -21,7 +21,7 @@ export default function DarkCta() {
         >
           <h2>More Orders, Lower Costs.</h2>
           <p>Take your restaurant digital and easily double your profits.</p>
-          <LeadButton className="btn btn--primary">Start Now</LeadButton>
+          <RegisterLink className="btn btn--primary">Start Now</RegisterLink>
         </div>
       </div>
     </section>
