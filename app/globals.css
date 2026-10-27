@@ -2545,8 +2545,9 @@ section[id] {
   }
 
   .hero {
-    padding-top: 20px;
-    padding-bottom: 40px;
+    padding-top: 28px;
+    padding-bottom: 56px;
+    margin-top: 8px;
   }
 
   .header-inner {
@@ -2569,12 +2570,14 @@ section[id] {
   }
 
   .hero-card {
-    margin-inline: 12px;
+    margin-inline: 14px;
+    margin-top: 12px;
+    margin-bottom: 16px;
     border-radius: 32px;
   }
 
   .hero-inner {
-    padding: 130px 24px 48px;
+    padding: 150px 28px 64px;
   }
 
   .hero-title {
@@ -3123,12 +3126,19 @@ section[id] {
 
 @media (max-width: 400px) {
   .hero {
-    padding-top: 24px;
-    padding-bottom: 36px;
+    padding-top: 36px;
+    padding-bottom: 52px;
+    margin-top: 12px;
+  }
+
+  .hero-card {
+    margin-inline: 12px;
+    margin-top: 16px;
+    margin-bottom: 18px;
   }
 
   .hero-inner {
-    padding: 116px 20px 36px;
+    padding: 136px 24px 52px;
   }
 
   .hero-title {
