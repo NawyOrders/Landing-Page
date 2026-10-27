@@ -2544,6 +2544,11 @@ section[id] {
     width: calc(100% - 40px);
   }
 
+  .hero {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
   .header-inner {
     width: calc(100% - 36px);
     height: 84px;
@@ -2569,11 +2574,11 @@ section[id] {
   }
 
   .hero-inner {
-    padding: 74px 24px 0;
+    padding: 130px 24px 48px;
   }
 
   .hero-title {
-    margin-top: 22px;
+    margin-top: 38px;
     font-size: clamp(36px, 9.6vw, 48px);
   }
 
@@ -2582,7 +2587,7 @@ section[id] {
   }
 
   .hero-badge {
-    padding: 10px 16px;
+    padding: 12px 18px;
     font-size: 10px;
     letter-spacing: 0.1em;
   }
@@ -2590,10 +2595,11 @@ section[id] {
   .hero-text {
     font-size: 15.5px;
     line-height: 1.75;
+    margin-top: 16px;
   }
 
   .hero-cta-wrap {
-    margin-top: 32px;
+    margin-top: 48px;
   }
 
   .hero-cta {
@@ -2620,7 +2626,7 @@ section[id] {
 
   .hero-visual {
     width: calc(100% + 10px);
-    margin: 2px -5px 0;
+    margin: 40px -5px 0;
   }
 
   .feature-strip-wrap {
@@ -3116,8 +3122,25 @@ section[id] {
 }
 
 @media (max-width: 400px) {
+  .hero {
+    padding-top: 24px;
+    padding-bottom: 36px;
+  }
+
   .hero-inner {
-    padding-inline: 20px;
+    padding: 116px 20px 36px;
+  }
+
+  .hero-title {
+    margin-top: 34px;
+  }
+
+  .hero-cta-wrap {
+    margin-top: 44px;
+  }
+
+  .hero-visual {
+    margin: 32px -5px 0;
   }
 
   .hero-title {
