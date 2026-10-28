@@ -74,7 +74,7 @@ export default function Faq() {
               Talk to our team. We will walk you through setup, plans, and the app that fits
               your restaurant.
             </p>
-            <RegisterLink className="btn btn--primary">
+            <RegisterLink className="btn btn--primary" style={{ animation: 'pulseGentle 2.5s ease-in-out infinite' }}>
               Talk to our team
               <ArrowIcon />
             </RegisterLink>

@@ -21,7 +21,7 @@ export default function DarkCta() {
         >
           <h2>More Orders, Lower Costs.</h2>
           <p>Take your restaurant digital and easily double your profits.</p>
-          <RegisterLink className="btn btn--primary">Start Now</RegisterLink>
+          <RegisterLink className="btn btn--primary" style={{ animation: 'pulseGentle 2.5s ease-in-out infinite' }}>Start Now</RegisterLink>
         </div>
       </div>
     </section>

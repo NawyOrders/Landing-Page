@@ -164,35 +164,39 @@ section[id] {
   padding: 21px 34px;
   font-size: 17px;
   color: #fff;
-  background: linear-gradient(135deg, var(--red-strong) 0%, var(--red-bright) 100%);
+  background: linear-gradient(135deg, var(--red-strong) 0%, var(--red-bright) 50%, var(--orange) 100%);
+  background-size: 200% 200%;
   box-shadow: 0 14px 24px -16px rgba(228, 56, 32, 0.5);
   transition:
-    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.3s ease,
-    filter 0.3s ease;
+    transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.35s ease,
+    filter 0.35s ease,
+    background-position 0.6s ease;
 }
 
 .btn--primary svg {
   width: 19px;
   height: 19px;
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   z-index: 1;
 }
 
 .btn--primary:hover {
-  transform: translateY(-4px) scale(1.03) rotateX(2deg);
-  box-shadow: 0 28px 48px -16px rgba(228, 56, 32, 0.75);
-  filter: saturate(1.1) brightness(1.05);
+  transform: translateY(-6px) scale(1.04) rotateX(4deg) rotateY(-2deg);
+  box-shadow: 0 32px 56px -16px rgba(228, 56, 32, 0.8);
+  filter: saturate(1.15) brightness(1.08);
+  background-position: 100% 0;
 }
 
 .btn--primary:hover svg {
-  transform: translateX(6px);
+  transform: translateX(8px);
 }
 
-.btn--primary:active {
-  transform: translateY(-1px) scale(0.98) rotateX(0deg);
-}
+  .btn--primary:active {
+    transform: translateY(-2px) scale(0.97) rotateX(1deg) rotateY(0deg);
+    box-shadow: 0 16px 32px -12px rgba(228, 56, 32, 0.6);
+  }
 
 .btn > * {
   position: relative;
@@ -773,11 +777,11 @@ section[id] {
   background: linear-gradient(145deg, #ffffff 0%, #fef7f3 100%);
   box-shadow: 0 16px 34px -30px rgba(80, 40, 10, 0.32);
   transform-style: preserve-3d;
-  perspective: 1000px;
+  perspective: 1200px;
   transition:
-    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.5s ease,
-    border-color 0.5s ease;
+    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.6s ease,
+    border-color 0.6s ease;
 }
 
 .feature-card-head {
@@ -1331,11 +1335,11 @@ section[id] {
   overflow: hidden;
   border-radius: 34px;
   transform-style: preserve-3d;
-  perspective: 1200px;
+  perspective: 1400px;
   transition:
-    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.5s ease,
-    border-color 0.5s ease;
+    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.6s ease,
+    border-color 0.6s ease;
 }
 
 .plan-card--light {
@@ -1553,9 +1557,11 @@ section[id] {
   min-height: 268px;
   padding: 24px 43px 28px;
   filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.13)) drop-shadow(0 20px 22px rgba(0, 0, 0, 0.10));
+  transform-style: preserve-3d;
+  perspective: 1000px;
   transition:
-    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
-    filter 0.4s ease;
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    filter 0.5s ease;
 }
 
 .testimonial-card::before {
@@ -1711,9 +1717,11 @@ section[id] {
   overflow: hidden;
   border-radius: 34px;
   text-align: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
   transition:
-    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
-    box-shadow 0.4s ease;
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.5s ease;
   background:
     radial-gradient(52% 30% at 66% 0%, rgba(255, 240, 213, 0.95), transparent 78%),
     radial-gradient(52% 82% at 95% 47%, rgba(255, 242, 212, 0.95), transparent 80%),
@@ -3557,42 +3565,42 @@ section[id] {
   }
 
   .feature-card:hover {
-    transform: translateY(-12px) scale(1.04) rotateX(3deg) rotateY(-2deg);
+    transform: translateY(-16px) scale(1.05) rotateX(5deg) rotateY(-3deg);
     border-color: #f0c4b8;
-    box-shadow: 0 48px 76px -28px rgba(120, 50, 20, 0.62);
+    box-shadow: 0 56px 88px -28px rgba(120, 50, 20, 0.68);
   }
 
   .feature-card:hover .feature-icon {
-    transform: translateY(-6px) rotate(-15deg) scale(1.15);
+    transform: translateY(-8px) rotate(-18deg) scale(1.18);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.52),
-      0 34px 48px -14px rgba(240, 90, 30, 1);
+      0 42px 58px -14px rgba(240, 90, 30, 1);
   }
 
   .plan-card:hover {
-    transform: translateY(-12px) scale(1.03) rotateX(2deg) rotateY(-1deg);
+    transform: translateY(-16px) scale(1.04) rotateX(4deg) rotateY(-2deg);
   }
 
   .plan-card--light:hover {
     border-color: #dedee2;
     box-shadow:
-      0 70px 120px -46px rgba(30, 20, 10, 0.7),
+      0 80px 140px -46px rgba(30, 20, 10, 0.75),
       inset 0 1px 0 #fff;
   }
 
   .plan-card--dark:hover {
     border-color: #4b4b4b;
     box-shadow:
-      0 76px 128px -46px rgba(0, 0, 0, 0.85),
-      0 0 0 1px rgba(238, 87, 44, 0.35);
+      0 86px 148px -46px rgba(0, 0, 0, 0.9),
+      0 0 0 1px rgba(238, 87, 44, 0.45);
   }
 
   .plan-card:hover .plan-amount {
-    transform: translateY(-4px) scale(1.03);
+    transform: translateY(-6px) scale(1.04);
   }
 
   .plan-card:hover .check-icon {
-    transform: scale(1.15);
+    transform: scale(1.18);
   }
 
   .brand-card:hover .brand-visual {
@@ -3604,19 +3612,19 @@ section[id] {
   }
 
   .testimonial-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    filter: drop-shadow(0 12px 12px rgba(0, 0, 0, 0.16)) drop-shadow(0 32px 34px rgba(0, 0, 0, 0.16));
+    transform: translateY(-14px) scale(1.03) rotateX(3deg);
+    filter: drop-shadow(0 16px 16px rgba(0, 0, 0, 0.18)) drop-shadow(0 38px 42px rgba(0, 0, 0, 0.18));
   }
 
   .testimonial-card:hover .testimonial-avatar {
-    transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 22px 32px -14px rgba(90, 40, 20, 0.6);
+    transform: scale(1.12) rotate(-8deg);
+    box-shadow: 0 28px 38px -14px rgba(90, 40, 20, 0.68);
   }
 
   .qr-card:hover {
-    transform: translateY(-8px) scale(1.01);
+    transform: translateY(-12px) scale(1.02) rotateX(2deg);
     box-shadow:
-      0 68px 108px -48px rgba(150, 100, 40, 0.72),
+      0 78px 122px -48px rgba(150, 100, 40, 0.78),
       inset 0 1px 0 rgba(255, 255, 255, 0.55);
   }
 }
