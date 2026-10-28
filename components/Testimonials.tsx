@@ -65,7 +65,7 @@ export default function Testimonials() {
               key={item.name}
               className={`testimonial-card${item.place === 'Burger kings' ? ' testimonial-card--float' : ''}`}
               data-reveal
-              style={{ '--reveal-delay': `${index * 90}ms` } as CSSProperties}
+              style={{ '--reveal-delay': `${index * 120}ms` } as CSSProperties}
             >
               <div className="testimonial-inner">
                 <img

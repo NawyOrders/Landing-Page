@@ -100,12 +100,14 @@ const items = [
   },
 ];
 
+import type { CSSProperties } from 'react';
+
 export default function FeatureStrip() {
   return (
-    <div className="feature-strip-wrap">
+    <div className="feature-strip-wrap" data-reveal style={{ '--reveal-delay': '400ms' } as CSSProperties}>
       <ul className="feature-strip">
-        {items.map((item) => (
-          <li key={item.title}>
+        {items.map((item, index) => (
+          <li key={item.title} style={{ animation: `slideUp 0.6s ease forwards ${index * 100 + 500}ms`, opacity: 0 }}>
             <span className="strip-icon">{item.icon}</span>
             <span className="strip-copy">
               <strong>{item.title}</strong>
