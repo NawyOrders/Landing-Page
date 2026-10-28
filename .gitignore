@@ -36,3 +36,7 @@ coverage/
 .idea/
 .DS_Store
 Thumbs.db
+/HERO-PARITY-REPORT.md 
+/HERO-PARITY-BEFORE.md 
+/HERO-PARITY-AFTER.md 
+/HERO-PARITY-AFTER.json
