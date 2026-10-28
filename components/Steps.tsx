@@ -50,7 +50,7 @@ export default function Steps() {
         loading="lazy"
       />
       <div className="container steps-grid">
-        <div className="steps-visual" data-reveal>
+        <div className="steps-visual" data-reveal="left" style={{ '--reveal-delay': '50ms' } as CSSProperties}>
           <img
             src="/images/steps-visual.jpg"
             width="660"
@@ -62,8 +62,8 @@ export default function Steps() {
 
         <div
           className="steps-copy"
-          data-reveal
-          style={{ '--reveal-delay': '100ms' } as CSSProperties}
+          data-reveal="right"
+          style={{ '--reveal-delay': '150ms' } as CSSProperties}
         >
           <span className="steps-chip">
             <span>How to Join</span>
@@ -78,8 +78,8 @@ export default function Steps() {
           </p>
 
           <ol className="steps-list">
-            {steps.map((step) => (
-              <li key={step.title}>
+            {steps.map((step, index) => (
+              <li key={step.title} data-reveal style={{ '--reveal-delay': `${index * 120}ms` } as CSSProperties}>
                 <StepIcon />
                 <div>
                   <h3>{step.title}</h3>

@@ -28,17 +28,17 @@ export default function Hero() {
 
         <div className="hero-inner">
           <div className="hero-copy">
-            <span className="chip chip--shine hero-badge">Smart Restaurant Management</span>
-            <h1 className="hero-title">
+            <span className="chip chip--shine hero-badge" data-reveal="scale" style={{ '--reveal-delay': '50ms' } as any}>Smart Restaurant Management</span>
+            <h1 className="hero-title" data-reveal style={{ '--reveal-delay': '150ms' } as any}>
               <span>Your Restaurant.</span>
               <span>Your Orders</span>
               <em>All in One Place</em>
             </h1>
-            <p className="hero-text">
+            <p className="hero-text" data-reveal style={{ '--reveal-delay': '250ms' } as any}>
               Manage orders, simplify daily operations, and deliver a better customer experience
               &nbsp;all from one powerful platform.
             </p>
-            <div className="hero-cta-wrap">
+            <div className="hero-cta-wrap" data-reveal style={{ '--reveal-delay': '350ms' } as any}>
               <img
                 className="hero-spark hero-spark--cta"
                 src="/images/spark-burst.png"
@@ -63,7 +63,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-visual">
+        <div className="hero-visual" data-reveal="right" style={{ '--reveal-delay': '200ms' } as any}>
           <img
             src="/images/hero-visual.jpg"
             width="792"
@@ -80,6 +80,7 @@ export default function Hero() {
           height="158"
           alt=""
           aria-hidden="true"
+          style={{ animation: 'float 3s ease-in-out infinite' } as any}
         />
       </div>
 

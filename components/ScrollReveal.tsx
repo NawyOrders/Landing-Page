@@ -25,7 +25,7 @@ export default function ScrollReveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
     );
 
     targets.forEach((el) => observer.observe(el));

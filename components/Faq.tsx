@@ -29,7 +29,7 @@ export default function Faq() {
   return (
     <section id="faq" className="faq-section" aria-labelledby="faq-title">
       <div className="container">
-        <header className="faq-head" data-reveal>
+        <header className="faq-head" data-reveal style={{ '--reveal-delay': '50ms' } as CSSProperties}>
           <span className="chip">FAQ</span>
           <h2 id="faq-title" className="section-title">
             Frequently asked <span className="accent">questions</span>
@@ -43,7 +43,7 @@ export default function Faq() {
               <details
                 key={item.q}
                 data-reveal
-                style={{ '--reveal-delay': `${index * 70}ms` } as CSSProperties}
+                style={{ '--reveal-delay': `${index * 80}ms` } as CSSProperties}
               >
                 <summary>
                   {item.q}

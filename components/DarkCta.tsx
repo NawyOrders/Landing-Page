@@ -5,7 +5,7 @@ export default function DarkCta() {
   return (
     <section className="dark-cta torn-top torn-bottom">
       <div className="container dark-grid">
-        <div className="dark-visual" data-reveal>
+        <div className="dark-visual" data-reveal="left" style={{ '--reveal-delay': '50ms' } as CSSProperties}>
           <img
             src="/images/dark-visual.jpg"
             width="710"
@@ -16,8 +16,8 @@ export default function DarkCta() {
         </div>
         <div
           className="dark-copy"
-          data-reveal
-          style={{ '--reveal-delay': '120ms' } as CSSProperties}
+          data-reveal="right"
+          style={{ '--reveal-delay': '150ms' } as CSSProperties}
         >
           <h2>More Orders, Lower Costs.</h2>
           <p>Take your restaurant digital and easily double your profits.</p>

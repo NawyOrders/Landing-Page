@@ -31,7 +31,7 @@ export default function Brand() {
         loading="lazy"
       />
       <div className="container">
-        <div className="brand-head" data-reveal>
+        <div className="brand-head" data-reveal style={{ '--reveal-delay': '50ms' } as CSSProperties}>
           <h2 className="section-title">
             We provide you with an app <span className="accent">customized</span>{' '}
             <br />
@@ -48,8 +48,8 @@ export default function Brand() {
             <article
               key={phone.title}
               className="brand-card"
-              data-reveal
-              style={{ '--reveal-delay': `${index * 100}ms` } as CSSProperties}
+              data-reveal="scale"
+              style={{ '--reveal-delay': `${index * 150}ms` } as CSSProperties}
             >
               <div className="brand-visual">
                 <img

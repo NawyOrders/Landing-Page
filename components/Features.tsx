@@ -126,7 +126,7 @@ export default function Features() {
               key={feature.title}
               className="feature-card"
               data-reveal
-              style={{ '--reveal-delay': `${(index % 3) * 80}ms` } as CSSProperties}
+              style={{ '--reveal-delay': `${(index % 3) * 100 + Math.floor(index/3)*150}ms` } as CSSProperties}
             >
               <div className="feature-card-head">
                 <span className="feature-icon">{feature.icon}</span>

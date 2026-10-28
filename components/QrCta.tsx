@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import QrPanel from './QrPanel';
 
 export default function QrCta() {
@@ -13,7 +14,7 @@ export default function QrCta() {
         loading="lazy"
       />
       <div className="container">
-        <header className="qr-head" data-reveal>
+        <header className="qr-head" data-reveal style={{ '--reveal-delay': '50ms' } as CSSProperties}>
           <h2 className="section-title">
             <span className="accent">Start</span> your journey today with{' '}
             <span className="accent">Nawy Orders</span>
@@ -23,7 +24,9 @@ export default function QrCta() {
             <span className="accent">48 hours.</span>
           </p>
         </header>
-        <QrPanel />
+        <div data-reveal style={{ '--reveal-delay': '200ms' } as CSSProperties}>
+          <QrPanel />
+        </div>
       </div>
     </section>
   );
