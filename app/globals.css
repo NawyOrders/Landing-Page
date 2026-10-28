@@ -37,7 +37,8 @@ html {
 }
 
 body {
-  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
   font-family: 'Poppins', var(--font-sans);
   font-size: 16px;
   color: var(--ink);
@@ -71,13 +72,16 @@ h3,
 h4,
 figure,
 blockquote {
-  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
 }
 
 ul,
 ol {
-  margin: 0;
-  padding: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 a {
@@ -98,7 +102,8 @@ section[id] {
   top: 12px;
   left: 12px;
   z-index: 200;
-  padding: 12px 20px;
+  padding-block: 12px;
+  padding-inline: 20px;
   border-radius: 999px;
   background: var(--red-strong);
   color: #fff;
@@ -127,7 +132,7 @@ section[id] {
 }
 
 .section-sub {
-  margin-top: 16px;
+  margin-block-start: 16px;
   font-size: 18.5px;
   line-height: 1.65;
   color: var(--ink-soft);
@@ -174,7 +179,8 @@ section[id] {
 }
 
 .btn--primary {
-  padding: 21px 34px;
+  padding-block: 21px;
+  padding-inline: 34px;
   font-size: 17px;
   color: #fff;
   background: linear-gradient(135deg, var(--red-strong) 0%, var(--red-bright) 50%, var(--orange) 100%);
@@ -220,7 +226,8 @@ section[id] {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 11px 20px;
+  padding-block: 11px;
+  padding-inline: 20px;
   border-radius: 8px;
   font-size: 11.5px;
   font-weight: 600;
@@ -251,7 +258,7 @@ section[id] {
   display: inline-flex;
   width: 24px;
   flex: 0 0 24px;
-  margin-top: 0;
+  margin-block-start: 0;
   color: var(--red);
   transition:
     transform 0.3s ease,
@@ -338,7 +345,8 @@ section[id] {
 
 .nav-link {
   position: relative;
-  padding: 10px 10px;
+  padding-block: 10px;
+  padding-inline: 10px;
   border: 0;
   background: none;
   color: #241b15;
@@ -381,7 +389,8 @@ section[id] {
 }
 
 .header-cta {
-  padding: 19px 28px;
+  padding-block: 19px;
+  padding-inline: 28px;
   font-size: 17px;
 }
 
@@ -394,7 +403,8 @@ section[id] {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 4px;
+  padding-block: 4px;
+  padding-inline: 4px;
   border: 1px solid #eeddd4;
   border-radius: 999px;
   background: #fff;
@@ -402,7 +412,8 @@ section[id] {
 
 .header-lang .lang-btn {
   min-width: 44px;
-  padding: 8px 12px;
+  padding-block: 8px;
+  padding-inline: 12px;
   border: 0;
   border-radius: 999px;
   background: transparent;
@@ -426,7 +437,7 @@ section[id] {
 
 .header-lang--mobile {
   justify-self: start;
-  margin-top: 4px;
+  margin-block-start: 4px;
 }
 
 [dir='rtl'] .header-lang--mobile {
@@ -440,7 +451,8 @@ section[id] {
   gap: 5px;
   width: 48px;
   height: 48px;
-  padding: 0 12px;
+  padding-block: 0;
+  padding-inline: 12px;
   border: 1px solid #eeddd4;
   border-radius: 14px;
   background: #fff;
@@ -475,7 +487,8 @@ section[id] {
   left: 0;
   display: grid;
   gap: 22px;
-  padding: 26px 32px 32px;
+  padding-block: 26px 32px;
+  padding-inline: 32px;
   border-bottom: 1px solid #f1e3db;
   background: #fff;
   box-shadow: 0 30px 40px -30px rgba(50, 25, 10, 0.35);
@@ -498,7 +511,8 @@ section[id] {
 }
 
 .mobile-link {
-  padding: 14px 2px;
+  padding-block: 14px;
+  padding-inline: 2px;
   border: 0;
   border-bottom: 1px solid #f5ebe5;
   background: none;
@@ -524,7 +538,8 @@ section[id] {
 
 .mobile-cta {
   width: 100%;
-  padding: 18px 26px;
+  padding-block: 18px;
+  padding-inline: 26px;
 }
 
 /* ---------- hero ---------- */
@@ -766,7 +781,8 @@ section[id] {
   position: relative;
   z-index: 5;
   width: min(1344px, calc(100% - 96px));
-  margin: 19px auto 0;
+  margin-block: 19px 0;
+  margin-inline: auto;
 }
 
 .feature-strip {
@@ -776,8 +792,10 @@ section[id] {
   justify-content: space-between;
   gap: 24px;
   min-height: 124px;
-  margin: 0;
-  padding: 26px 76px;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 26px;
+  padding-inline: 76px;
   overflow: hidden;
   border: 1px solid #f3e7db;
   border-radius: 26px;
@@ -859,13 +877,15 @@ section[id] {
 /* ---------- features ---------- */
 
 .features-section {
-  padding: 89px 0 84px;
+  padding-block: 89px 84px;
+  padding-inline: 0;
 }
 
 .features-head {
   position: relative;
   max-width: 880px;
-  margin: 0 auto 53px;
+  margin-block: 0 53px;
+  margin-inline: auto;
   text-align: center;
 }
 
@@ -877,7 +897,7 @@ section[id] {
 
 .features-head .section-sub {
   max-width: 620px;
-  margin-top: 20px;
+  margin-block-start: 20px;
   margin-inline: auto;
   font-size: 19px;
   line-height: 1.58;
@@ -912,7 +932,8 @@ section[id] {
 }
 
 .feature-card {
-  padding: 30px 19px 28px;
+  padding-block: 30px 28px;
+  padding-inline: 19px;
   border: 1px solid #ead8d3;
   border-radius: 19px;
   background: linear-gradient(145deg, #ffffff 0%, #fef7f3 100%);
@@ -975,7 +996,7 @@ section[id] {
 }
 
 .feature-card p {
-  margin-top: 18px;
+  margin-block-start: 18px;
   font-size: 14.5px;
   line-height: 1.11;
   color: #40322a;
@@ -985,7 +1006,8 @@ section[id] {
 
 .steps-section {
   position: relative;
-  padding: 52px 0 53px;
+  padding-block: 52px 53px;
+  padding-inline: 0;
   overflow: hidden;
 }
 
@@ -1010,7 +1032,8 @@ section[id] {
 
 .steps-copy {
   max-width: 620px;
-  padding: 118px 0 0;
+  padding-block: 118px 0;
+  padding-inline: 0;
 }
 
 .steps-chip {
@@ -1019,8 +1042,8 @@ section[id] {
   justify-content: center;
   width: 107.5px;
   height: 39.5px;
-  padding-top: 3px;
-  margin-bottom: 13.3px;
+  padding-block-start: 3px;
+  margin-block-end: 13.3px;
   border-radius: 999px;
   background: linear-gradient(110deg, #ee572c 0%, #ff8c42 50%, #ffb257 100%);
   box-shadow:
@@ -1048,7 +1071,7 @@ section[id] {
 
 .steps-intro {
   max-width: 400px;
-  margin-top: 2px;
+  margin-block-start: 2px;
   font-size: 18px;
   line-height: 1.667;
   color: #45372e;
@@ -1057,7 +1080,7 @@ section[id] {
 .steps-list {
   display: grid;
   gap: 21px;
-  margin-top: 43.2px;
+  margin-block-start: 43.2px;
   list-style: none;
 }
 
@@ -1070,7 +1093,7 @@ section[id] {
   flex: 0 0 44px;
   width: 44px;
   height: 48px;
-  margin-top: 1px;
+  margin-block-start: 1px;
 }
 
 .step-icon svg {
@@ -1081,7 +1104,7 @@ section[id] {
 }
 
 .steps-list h3 {
-  margin-top: 2px;
+  margin-block-start: 2px;
   font-size: 34px;
   font-weight: 600;
   line-height: 1.15;
@@ -1091,7 +1114,7 @@ section[id] {
 
 .steps-list p {
   max-width: 460px;
-  margin-top: 4px;
+  margin-block-start: 4px;
   font-size: 16px;
   line-height: 30px;
   color: #4a3a31;
@@ -1111,7 +1134,8 @@ section[id] {
 
 .brand-section {
   position: relative;
-  padding: 71px 0 154.5px;
+  padding-block: 71px 154.5px;
+  padding-inline: 0;
   overflow: hidden;
 }
 
@@ -1120,8 +1144,8 @@ section[id] {
   grid-template-columns: 660px minmax(0, 1fr);
   gap: 80px;
   align-items: start;
-  margin-bottom: -2.5px;
-  padding-top: 2.5px;
+  margin-block-end: -2.5px;
+  padding-block-start: 2.5px;
 }
 
 .brand-head .section-title {
@@ -1134,7 +1158,7 @@ section[id] {
 
 .brand-head p {
   max-width: 480px;
-  margin-top: 0;
+  margin-block-start: 0;
   font-size: 20px;
   line-height: 1.525;
   color: var(--ink-soft);
@@ -1180,21 +1204,21 @@ section[id] {
 
 .brand-card:nth-child(1) .brand-visual img {
   width: 400px;
-  margin-bottom: 2px;
+  margin-block-end: 2px;
 }
 
 .brand-card:nth-child(2) .brand-visual img {
   width: 400px;
-  margin-bottom: -6px;
+  margin-block-end: -6px;
 }
 
 .brand-card:nth-child(3) .brand-visual img {
   width: 415px;
-  margin-bottom: 5px;
+  margin-block-end: 5px;
 }
 
 .brand-card h3 {
-  margin-top: 24px;
+  margin-block-start: 24px;
   font-size: 33px;
   font-weight: 600;
   line-height: 1.25;
@@ -1204,7 +1228,7 @@ section[id] {
 }
 
 .brand-card p {
-  margin-top: 12px;
+  margin-block-start: 12px;
   font-size: 20px;
   line-height: 1.5;
   color: #4b3c33;
@@ -1263,7 +1287,8 @@ section[id] {
 /* ---------- dark cta ---------- */
 
 .dark-cta {
-  padding: 33px 0 21px;
+  padding-block: 33px 21px;
+  padding-inline: 0;
   color: #fff;
   background: var(--dark);
 }
@@ -1289,7 +1314,8 @@ section[id] {
 .dark-copy {
   max-width: 560px;
   margin-inline-start: -1px;
-  padding: 11px 0 0;
+  padding-block: 11px 0;
+  padding-inline: 0;
 }
 
 .dark-copy h2 {
@@ -1303,7 +1329,8 @@ section[id] {
 
 .dark-copy p {
   max-width: 440px;
-  margin: 15px 0 0;
+  margin-block: 15px 0;
+  margin-inline: 0;
   font-size: 31.5px;
   font-weight: 300;
   line-height: 40px;
@@ -1311,8 +1338,9 @@ section[id] {
 }
 
 .dark-copy .btn {
-  margin-top: 55.25px;
-  padding: 27px 47.25px;
+  margin-block-start: 55.25px;
+  padding-block: 27px;
+  padding-inline: 47.25px;
   font-size: 18px;
 }
 
@@ -1320,7 +1348,8 @@ section[id] {
 
 .pricing-section {
   position: relative;
-  padding: 155px 0 0;
+  padding-block: 155px 0;
+  padding-inline: 0;
   overflow: hidden;
 }
 
@@ -1336,7 +1365,7 @@ section[id] {
 }
 
 .pricing-head .section-sub {
-  margin-top: 18px;
+  margin-block-start: 18px;
   font-size: 24px;
   line-height: 1.6;
 }
@@ -1360,8 +1389,10 @@ section[id] {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 306px;
-  margin: 47.5px auto 16px;
-  padding: 4px;
+  margin-block: 47.5px 16px;
+  margin-inline: auto;
+  padding-block: 4px;
+  padding-inline: 4px;
   border-radius: 999px;
   background:
     linear-gradient(118deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.28) 20%, rgba(255, 255, 255, 0) 42%),
@@ -1400,7 +1431,8 @@ section[id] {
 .billing-toggle button {
   position: relative;
   z-index: 1;
-  padding: 18px 0;
+  padding-block: 18px;
+  padding-inline: 0;
   border: 0;
   border-radius: 999px;
   background: none;
@@ -1434,7 +1466,8 @@ section[id] {
 .billing-note {
   position: relative;
   z-index: 2;
-  margin: 0 auto 30px;
+  margin-block: 0 30px;
+  margin-inline: auto;
   text-align: center;
   font-size: 15.5px;
   line-height: 1.4;
@@ -1552,7 +1585,7 @@ section[id] {
 }
 
 .plan-desc {
-  margin-top: 12px;
+  margin-block-start: 12px;
   font-size: 20px;
   line-height: 1.5;
   color: #2f2f2f;
@@ -1567,7 +1600,7 @@ section[id] {
   flex-direction: column;
   gap: 37.3px;
   min-height: 253px;
-  margin-top: 44.7px;
+  margin-block-start: 44.7px;
 }
 
 .plans-grid.is-monthly .plan-prices {
@@ -1620,7 +1653,7 @@ section[id] {
 .plan-features {
   display: grid;
   gap: 30.8px;
-  margin-top: 38.8px;
+  margin-block-start: 38.8px;
   padding-inline-start: 16.5px;
   list-style: none;
 }
@@ -1644,8 +1677,8 @@ section[id] {
 
 .plan-cta {
   display: flex;
-  margin-top: auto;
-  padding-top: 38.8px;
+  margin-block-start: auto;
+  padding-block-start: 38.8px;
 }
 
 .plan-cta .btn {
@@ -1656,12 +1689,13 @@ section[id] {
 
 .testimonials-section {
   position: relative;
-  padding: 54px 0 79px;
+  padding-block: 54px 79px;
+  padding-inline: 0;
   overflow: hidden;
 }
 
 .testimonials-head {
-  margin-bottom: 94px;
+  margin-block-end: 94px;
   text-align: center;
 }
 
@@ -1671,7 +1705,7 @@ section[id] {
 }
 
 .testimonials-head .section-sub {
-  margin-top: 20px;
+  margin-block-start: 20px;
   font-size: 24px;
   line-height: 1.52;
 }
@@ -1697,7 +1731,8 @@ section[id] {
 .testimonial-card {
   position: relative;
   min-height: 268px;
-  padding: 24px 43px 28px;
+  padding-block: 24px 28px;
+  padding-inline: 43px;
   filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.13)) drop-shadow(0 20px 22px rgba(0, 0, 0, 0.10));
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -1759,7 +1794,7 @@ section[id] {
 }
 
 .testimonial-card h3 {
-  margin-top: 19px;
+  margin-block-start: 19px;
   font-size: 16px;
   font-weight: 600;
   line-height: 1.3;
@@ -1767,14 +1802,14 @@ section[id] {
 }
 
 .testimonial-place {
-  margin-top: -0.5px;
+  margin-block-start: -0.5px;
   font-size: 12px;
   line-height: 1.5;
   color: #6a5348;
 }
 
 .testimonial-card blockquote {
-  margin-top: 16.5px;
+  margin-block-start: 16.5px;
   font-size: 14px;
   line-height: 1.5;
   color: #3a2b24;
@@ -1793,13 +1828,14 @@ section[id] {
   top: 166px;
   right: 0;
   left: 0;
-  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
   font-size: 12px;
   line-height: 1.4;
 }
 
 .testimonial-card--float blockquote {
-  margin-top: 33.5px;
+  margin-block-start: 33.5px;
 }
 
 .testi-noodles {
@@ -1819,7 +1855,8 @@ section[id] {
 
 .qr-section {
   position: relative;
-  padding: 134px 0 150.6px;
+  padding-block: 134px 150.6px;
+  padding-inline: 0;
   overflow: hidden;
 }
 
@@ -1836,7 +1873,8 @@ section[id] {
 
 .qr-head .section-sub {
   max-width: 600px;
-  margin: 22px auto 0;
+  margin-block: 22px 0;
+  margin-inline: auto;
   font-size: 24px;
   line-height: 1.52;
 }
@@ -1854,8 +1892,10 @@ section[id] {
 .qr-card {
   position: relative;
   width: min(574px, 100%);
-  margin: 79.3px auto 0;
-  padding: 43.3px 40px 40.1px;
+  margin-block: 79.3px 0;
+  margin-inline: auto;
+  padding-block: 43.3px 40.1px;
+  padding-inline: 40px;
   overflow: hidden;
   border-radius: 34px;
   text-align: center;
@@ -1892,7 +1932,7 @@ section[id] {
 .qr-card-title {
   position: relative;
   z-index: 1;
-  margin-bottom: 30px;
+  margin-block-end: 30px;
   font-size: 24px;
   font-weight: 600;
   line-height: 1.4;
@@ -1906,7 +1946,8 @@ section[id] {
   width: min(320px, 100%);
   height: 323px;
   margin-inline: auto;
-  padding: 22px 24px;
+  padding-block: 22px;
+  padding-inline: 24px;
   place-items: center;
   border-radius: 28px;
   background: #feead5;
@@ -1927,8 +1968,9 @@ section[id] {
   z-index: 1;
   display: inline-flex;
   min-width: 262px;
-  margin-top: 26px;
-  padding: 4px;
+  margin-block-start: 26px;
+  padding-block: 4px;
+  padding-inline: 4px;
   border: 0;
   border-radius: 999px;
   font-family: var(--font-sans);
@@ -1955,7 +1997,8 @@ section[id] {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 30.5px 36px 32.5px;
+  padding-block: 30.5px 32.5px;
+  padding-inline: 36px;
   border-radius: inherit;
   color: #3a2410;
   font-size: 16px;
@@ -1974,7 +2017,8 @@ section[id] {
 
 .site-footer {
   position: relative;
-  padding: 55.4px 0 34px;
+  padding-block: 55.4px 34px;
+  padding-inline: 0;
   overflow-x: clip;
   color: #fff;
   background: var(--dark);
@@ -1996,8 +2040,8 @@ section[id] {
 }
 
 .footer-watermark {
-  padding-left: max(34.5px, calc((100% - 1312px) / 2 + 2.5px));
-  margin-bottom: 51.5px;
+  padding-inline-start: max(34.5px, calc((100% - 1312px) / 2 + 2.5px));
+  margin-block-end: 51.5px;
   font-size: clamp(84px, 12.85vw, 185px);
   font-weight: 700;
   line-height: 1;
@@ -2035,14 +2079,15 @@ section[id] {
 
 .footer-brand p {
   max-width: 345px;
-  margin-top: 21px;
+  margin-block-start: 21px;
   font-size: 16.25px;
   line-height: 26px;
   color: #bdb6b1;
 }
 
 .footer-col h3 {
-  margin: 1px 0 22px;
+  margin-block: 1px 22px;
+  margin-inline: 0;
   font-size: 16.5px;
   font-weight: 600;
   line-height: 1.3;
@@ -2074,7 +2119,7 @@ section[id] {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  margin-top: 73.2px;
+  margin-block-start: 73.2px;
   flex-wrap: wrap;
 }
 
@@ -2121,7 +2166,8 @@ section[id] {
 
 .faq-section {
   position: relative;
-  padding: 54px 0 118px;
+  padding-block: 54px 118px;
+  padding-inline: 0;
 }
 
 .faq-section::before {
@@ -2146,7 +2192,7 @@ section[id] {
 }
 
 .faq-head .chip {
-  margin-bottom: 16px;
+  margin-block-end: 16px;
 }
 
 .faq-head .section-title {
@@ -2155,7 +2201,7 @@ section[id] {
 }
 
 .faq-head .section-sub {
-  margin-top: 14px;
+  margin-block-start: 14px;
 }
 
 .faq-layout {
@@ -2165,7 +2211,7 @@ section[id] {
   grid-template-columns: minmax(0, 1.55fr) minmax(290px, 0.72fr);
   gap: 28px;
   align-items: start;
-  margin-top: 50px;
+  margin-block-start: 50px;
 }
 
 .faq-list {
@@ -2174,7 +2220,8 @@ section[id] {
 }
 
 .faq-list details {
-  padding: 0 24px;
+  padding-block: 0;
+  padding-inline: 24px;
   border: 1px solid #eedfd7;
   border-radius: 16px;
   background: #fff;
@@ -2200,7 +2247,8 @@ section[id] {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 21px 0;
+  padding-block: 21px;
+  padding-inline: 0;
   color: #251a13;
   font-size: 17px;
   font-weight: 600;
@@ -2232,7 +2280,8 @@ section[id] {
 
 .faq-list details p {
   max-width: 92%;
-  margin: 0 0 20px;
+  margin-block: 0 20px;
+  margin-inline: 0;
   font-size: 15.5px;
   line-height: 1.7;
   color: #5a463b;
@@ -2241,7 +2290,8 @@ section[id] {
 .faq-aside {
   position: sticky;
   top: 108px;
-  padding: 34px 30px 30px;
+  padding-block: 34px 30px;
+  padding-inline: 30px;
   overflow: hidden;
   border-radius: 26px;
   color: #fff;
@@ -2267,7 +2317,7 @@ section[id] {
   position: relative;
   z-index: 1;
   display: inline-flex;
-  margin-bottom: 18px;
+  margin-block-end: 18px;
   color: #ffb39f;
   font-size: 11.5px;
   font-weight: 600;
@@ -2288,7 +2338,7 @@ section[id] {
 .faq-aside p {
   position: relative;
   z-index: 1;
-  margin-top: 14px;
+  margin-block-start: 14px;
   color: rgba(255, 255, 255, 0.76);
   font-size: 15px;
   line-height: 1.7;
@@ -2298,8 +2348,9 @@ section[id] {
   position: relative;
   z-index: 1;
   width: 100%;
-  margin-top: 24px;
-  padding: 17px 22px;
+  margin-block-start: 24px;
+  padding-block: 17px;
+  padding-inline: 22px;
   font-size: 15px;
 }
 
@@ -2309,7 +2360,7 @@ section[id] {
 }
 
 .faq-aside .faq-aside-note {
-  margin-top: 14px;
+  margin-block-start: 14px;
   color: rgba(255, 255, 255, 0.62);
   font-size: 12.5px;
   text-align: center;
@@ -2698,11 +2749,12 @@ section[id] {
 
   .feature-strip-wrap {
     width: calc(100% - 72px);
-    margin-top: -80px;
+    margin-block-start: -80px;
   }
 
   .feature-strip {
-    padding: 30px 40px;
+    padding-block: 30px;
+    padding-inline: 40px;
     gap: 16px;
   }
 
@@ -2721,7 +2773,7 @@ section[id] {
   }
 
   .features-section {
-    padding-top: 146px;
+    padding-block-start: 146px;
   }
 
   .flank--burger {
@@ -2744,7 +2796,7 @@ section[id] {
 
   .brand-card .brand-visual img {
     width: 100%;
-    margin-bottom: 0;
+    margin-block-end: 0;
     transform: none;
   }
 
@@ -2758,7 +2810,8 @@ section[id] {
   }
 
   .plan-card {
-    padding: 56px 44px 52px;
+    padding-block: 56px 52px;
+    padding-inline: 44px;
   }
 
   .dark-visual {
@@ -2800,7 +2853,7 @@ section[id] {
   }
 
   .steps-section {
-    padding-bottom: 60px;
+    padding-block-end: 60px;
   }
 
   .steps-grid {
@@ -2822,7 +2875,8 @@ section[id] {
 
   .plan-card {
     min-height: 620px;
-    padding: 50px 38px;
+    padding-block: 50px;
+    padding-inline: 38px;
   }
 
   .plan-amount {
@@ -2892,7 +2946,7 @@ section[id] {
   }
 
   .feature-strip-wrap {
-    margin-top: -58px;
+    margin-block-start: -58px;
   }
 
   .feature-strip {
@@ -2900,11 +2954,13 @@ section[id] {
     grid-template-columns: 1fr 1fr;
     gap: 26px 24px;
     min-height: 0;
-    padding: 34px 48px;
+    padding-block: 34px;
+    padding-inline: 48px;
   }
 
   .features-section {
-    padding: 120px 0 80px;
+    padding-block: 120px 80px;
+    padding-inline: 0;
   }
 
   .features-grid {
@@ -2922,14 +2978,15 @@ section[id] {
 
   .steps-visual {
     width: 100%;
-    margin: -10px auto 0;
+    margin-block: -10px 0;
+    margin-inline: auto;
     max-width: 560px;
   }
 
   .steps-copy {
     max-width: 700px;
     margin-inline: auto;
-    padding-top: 10px;
+    padding-block-start: 10px;
   }
 
   .steps-bowl {
@@ -2938,13 +2995,14 @@ section[id] {
   }
 
   .brand-section {
-    padding: 80px 0 100px;
+    padding-block: 80px 100px;
+    padding-inline: 0;
   }
 
   .brand-head {
     grid-template-columns: 1fr;
     gap: 22px;
-    margin-bottom: 36px;
+    margin-block-end: 36px;
   }
 
   .brand-head .section-title {
@@ -2966,7 +3024,8 @@ section[id] {
   }
 
   .dark-cta {
-    padding: 96px 0 108px;
+    padding-block: 96px 108px;
+    padding-inline: 0;
   }
 
   .dark-grid {
@@ -2983,7 +3042,8 @@ section[id] {
   .dark-copy {
     max-width: 620px;
     margin-inline: auto;
-    padding: 0 8px;
+    padding-block: 0;
+    padding-inline: 8px;
     text-align: center;
   }
 
@@ -2992,7 +3052,8 @@ section[id] {
   }
 
   .pricing-section {
-    padding: 108px 0 88px;
+    padding-block: 108px 88px;
+    padding-inline: 0;
   }
 
   .pricing-wok {
@@ -3036,7 +3097,8 @@ section[id] {
   }
 
   .qr-section {
-    padding: 76px 0 132px;
+    padding-block: 76px 132px;
+    padding-inline: 0;
   }
 
   .qr-plate {
@@ -3098,7 +3160,8 @@ section[id] {
   }
 
   .mobile-menu {
-    padding: 20px 22px 28px;
+    padding-block: 20px 28px;
+    padding-inline: 22px;
   }
 
   .hero-card {
@@ -3173,12 +3236,13 @@ section[id] {
 
   .feature-strip-wrap {
     width: calc(100% - 28px);
-    margin-top: -40px;
+    margin-block-start: -40px;
   }
 
   .feature-strip {
     gap: 22px 16px;
-    padding: 26px 22px;
+    padding-block: 26px;
+    padding-inline: 22px;
     border-radius: 22px;
   }
 
@@ -3197,11 +3261,12 @@ section[id] {
   }
 
   .features-section {
-    padding: 100px 0 62px;
+    padding-block: 100px 62px;
+    padding-inline: 0;
   }
 
   .features-head {
-    margin-bottom: 38px;
+    margin-block-end: 38px;
   }
 
   .features-head .section-title {
@@ -3227,7 +3292,8 @@ section[id] {
   }
 
   .feature-card {
-    padding: 24px;
+    padding-block: 24px;
+    padding-inline: 24px;
   }
 
   .feature-card:hover {
@@ -3251,12 +3317,13 @@ section[id] {
   }
 
   .feature-card p {
-    margin-top: 14px;
+    margin-block-start: 14px;
     font-size: 15px;
   }
 
   .steps-section {
-    padding: 18px 0 62px;
+    padding-block: 18px 62px;
+    padding-inline: 0;
   }
 
   .steps-visual {
@@ -3264,7 +3331,7 @@ section[id] {
   }
 
   .steps-copy {
-    padding-top: 4px;
+    padding-block-start: 4px;
     text-align: left;
   }
 
@@ -3278,7 +3345,7 @@ section[id] {
 
   .steps-list {
     gap: 26px;
-    margin-top: 28px;
+    margin-block-start: 28px;
   }
 
   .steps-list li {
@@ -3305,7 +3372,8 @@ section[id] {
   }
 
   .brand-section {
-    padding: 66px 0 78px;
+    padding-block: 66px 78px;
+    padding-inline: 0;
   }
 
   .brand-head .section-title {
@@ -3334,7 +3402,7 @@ section[id] {
   }
 
   .brand-card h3 {
-    margin-top: 16px;
+    margin-block-start: 16px;
     font-size: 27px;
   }
 
@@ -3343,7 +3411,8 @@ section[id] {
   }
 
   .dark-cta {
-    padding: 84px 0 92px;
+    padding-block: 84px 92px;
+    padding-inline: 0;
   }
 
   .dark-grid {
@@ -3352,7 +3421,7 @@ section[id] {
 
   .dark-visual {
     max-width: 460px;
-    margin-bottom: -6px;
+    margin-block-end: -6px;
   }
 
   .dark-copy h2 {
@@ -3360,16 +3429,18 @@ section[id] {
   }
 
   .dark-copy p {
-    margin: 18px auto 0;
+    margin-block: 18px 0;
+    margin-inline: auto;
     font-size: 19px;
   }
 
   .dark-copy .btn {
-    margin-top: 28px;
+    margin-block-start: 28px;
   }
 
   .pricing-section {
-    padding: 92px 0 70px;
+    padding-block: 92px 70px;
+    padding-inline: 0;
   }
 
   .pricing-wok {
@@ -3382,21 +3453,23 @@ section[id] {
 
   .billing-toggle {
     width: 274px;
-    margin: 30px auto 14px;
+    margin-block: 30px 14px;
+    margin-inline: auto;
   }
 
   .billing-toggle button {
-    padding: 13px 0;
+    padding-block: 13px;
+    padding-inline: 0;
     font-size: 16px;
   }
 
   .billing-note {
-    margin-bottom: 26px;
+    margin-block-end: 26px;
     font-size: 14px;
   }
 
   .pricing-head .section-sub {
-    margin-top: 12px;
+    margin-block-start: 12px;
     font-size: 16px;
   }
 
@@ -3407,7 +3480,8 @@ section[id] {
   }
 
   .plan-card {
-    padding: 38px 26px 36px;
+    padding-block: 38px 36px;
+    padding-inline: 26px;
     border-radius: 26px;
     min-height: 0;
   }
@@ -3427,7 +3501,8 @@ section[id] {
   .plan-prices {
     gap: 14px;
     min-height: 0;
-    margin: 26px 0 30px;
+    margin-block: 26px 30px;
+    margin-inline: 0;
   }
 
   .plan-amount {
@@ -3447,11 +3522,12 @@ section[id] {
   }
 
   .testimonials-section {
-    padding: 34px 0 80px;
+    padding-block: 34px 80px;
+    padding-inline: 0;
   }
 
   .testimonials-head {
-    margin-bottom: 34px;
+    margin-block-end: 34px;
   }
 
   .testimonials-head .section-title {
@@ -3474,11 +3550,11 @@ section[id] {
 
   .testi-place-float {
     position: static;
-    margin-top: 1px;
+    margin-block-start: 1px;
   }
 
   .testimonial-card--float blockquote {
-    margin-top: 12px;
+    margin-block-start: 12px;
   }
 
   .testimonial-card,
@@ -3487,7 +3563,8 @@ section[id] {
     max-width: none;
     width: 100%;
     min-height: 0;
-    padding: 32px 26px 34px;
+    padding-block: 32px 34px;
+    padding-inline: 26px;
     transform: none;
   }
 
@@ -3502,7 +3579,7 @@ section[id] {
   }
 
   .testimonial-card h3 {
-    margin-top: 14px;
+    margin-block-start: 14px;
     font-size: 18px;
   }
 
@@ -3519,7 +3596,8 @@ section[id] {
   }
 
   .qr-section {
-    padding: 60px 0 106px;
+    padding-block: 60px 106px;
+    padding-inline: 0;
   }
 
   .qr-head .section-title {
@@ -3535,37 +3613,42 @@ section[id] {
   }
 
   .qr-card {
-    margin-top: 38px;
-    padding: 28px 22px 32px;
+    margin-block-start: 38px;
+    padding-block: 28px 32px;
+    padding-inline: 22px;
     border-radius: 26px;
   }
 
   .qr-card-title {
-    margin-bottom: 20px;
+    margin-block-end: 20px;
     font-size: 16px;
   }
 
   .qr-box {
     height: auto;
     aspect-ratio: 1;
-    padding: 14px;
+    padding-block: 14px;
+    padding-inline: 14px;
     border-radius: 22px;
   }
 
   .qr-direct {
     width: 100%;
     min-width: 0;
-    margin-top: 24px;
-    padding: 4px;
+    margin-block-start: 24px;
+    padding-block: 4px;
+    padding-inline: 4px;
   }
 
   .qr-direct-fill {
-    padding: 18px 20px;
+    padding-block: 18px;
+    padding-inline: 20px;
     font-size: 15px;
   }
 
   .site-footer {
-    padding: 84px 0 30px;
+    padding-block: 84px 30px;
+    padding-inline: 0;
   }
 
   .site-footer > .container {
@@ -3573,8 +3656,8 @@ section[id] {
   }
 
   .footer-watermark {
-    margin-bottom: 44px;
-    padding-left: 20px;
+    margin-block-end: 44px;
+    padding-inline-start: 20px;
     font-size: 13vw;
     line-height: 1;
     letter-spacing: 0.02em;
@@ -3590,12 +3673,12 @@ section[id] {
   }
 
   .footer-brand p {
-    margin-top: 18px;
+    margin-block-start: 18px;
     font-size: 15px;
   }
 
   .footer-col h3 {
-    margin-bottom: 16px;
+    margin-block-end: 16px;
     font-size: 16px;
   }
 
@@ -3608,7 +3691,7 @@ section[id] {
   }
 
   .footer-bottom {
-    margin-top: 48px;
+    margin-block-start: 48px;
     gap: 18px;
   }
 
@@ -3622,7 +3705,8 @@ section[id] {
   }
 
   .faq-section {
-    padding: 38px 0 84px;
+    padding-block: 38px 84px;
+    padding-inline: 0;
   }
 
   .faq-head .section-title {
@@ -3634,7 +3718,7 @@ section[id] {
   }
 
   .faq-layout {
-    margin-top: 32px;
+    margin-block-start: 32px;
   }
 
   .faq-list {
@@ -3642,23 +3726,26 @@ section[id] {
   }
 
   .faq-list details {
-    padding: 0 18px;
+    padding-block: 0;
+    padding-inline: 18px;
     border-radius: 14px;
   }
 
   .faq-list summary {
-    padding: 18px 0;
+    padding-block: 18px;
+    padding-inline: 0;
     font-size: 15.5px;
   }
 
   .faq-list details p {
     max-width: none;
-    margin-bottom: 17px;
+    margin-block-end: 17px;
     font-size: 14.5px;
   }
 
   .faq-aside {
-    padding: 28px 24px 26px;
+    padding-block: 28px 26px;
+    padding-inline: 24px;
     border-radius: 22px;
   }
 
@@ -3709,7 +3796,8 @@ section[id] {
   }
 
   .feature-strip {
-    padding: 22px 16px;
+    padding-block: 22px;
+    padding-inline: 16px;
     gap: 20px 12px;
   }
 
@@ -3886,8 +3974,6 @@ section[id] {
 }
 
 [dir='rtl'] .footer-watermark {
-  padding-right: 0;
-  padding-left: 0;
   text-align: center;
   letter-spacing: 0;
 }
