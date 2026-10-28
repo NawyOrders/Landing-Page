@@ -26,6 +26,7 @@ const socials = [
 
 export default function Footer({ dict }: { dict?: Dictionary } = {}) {
   const footerData = dict?.footer;
+  const brandName = dict?.brandName || 'Nawy Orders';
   const columns: Array<{ title: string; links: Array<{ label: string; href: string }> }> = footerData?.columns || [
     {
       title: 'Company',
@@ -57,7 +58,7 @@ export default function Footer({ dict }: { dict?: Dictionary } = {}) {
   return (
     <footer className="site-footer torn-top">
       <div className="footer-watermark-clip" aria-hidden="true">
-        <div className="footer-watermark">Nawy Orders</div>
+        <div className="footer-watermark">{brandName}</div>
       </div>
 
       <div className="container">
@@ -65,7 +66,7 @@ export default function Footer({ dict }: { dict?: Dictionary } = {}) {
           <div className="footer-brand">
             <div className="footer-logo">
               <LogoMark />
-              <span>Nawy Orders</span>
+              <span>{brandName}</span>
             </div>
             <p>
               {footerData?.description || 'A platform that helps restaurant owners build their own applications with their visual identity easily and quickly.'}

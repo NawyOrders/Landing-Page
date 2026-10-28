@@ -1,6 +1,7 @@
 import type { Dictionary } from './dictionary';
 
 export const ar: Dictionary = {
+  brandName: 'ناوى اوردرز',
   header: {
     nav: {
       home: 'الرئيسية',
@@ -246,7 +247,7 @@ export const ar: Dictionary = {
         ],
       },
     ],
-    copyright: 'جميع الحقوق محفوظة © ٢٠٢٦ ناوي أوردرز',
+    copyright: 'جميع الحقوق محفوظة © ٢٠٢٦ ناوى اوردرز',
     copyrightName: 'SpaceTech',
   },
 };
