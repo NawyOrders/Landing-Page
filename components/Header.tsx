@@ -62,7 +62,7 @@ export default function Header() {
               key={link.id}
               href={link.href}
               className={`nav-link${active === link.id ? ' is-active' : ''}`}
-              style={{ animation: `fadeIn 0.6s ease forwards ${index * 50}ms`, opacity: 0 }}
+              style={{ animation: `slideDown 0.6s ease forwards ${index * 60}ms`, opacity: 0 }}
             >
               {link.label}
             </a>
@@ -70,7 +70,7 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <RegisterLink className="btn btn--primary header-cta" style={{ animation: 'fadeIn 0.6s ease forwards 300ms', opacity: 0 }}>
+          <RegisterLink className="btn btn--primary header-cta" style={{ animation: 'slideDown 0.6s ease forwards 320ms', opacity: 0 }}>
             Get Started
             <ArrowIcon />
           </RegisterLink>
@@ -98,7 +98,7 @@ export default function Header() {
                 href={link.href}
                 className={`mobile-link${active === link.id ? ' is-active' : ''}`}
                 onClick={() => setMenuOpen(false)}
-                style={{ animation: `slideUp 0.3s ease forwards ${index * 50}ms`, opacity: 0 }}
+                style={{ animation: `slideUp 0.4s ease forwards ${index * 60}ms`, opacity: 0 }}
               >
                 {link.label}
               </a>
@@ -107,7 +107,7 @@ export default function Header() {
           <RegisterLink
             className="btn btn--primary mobile-cta"
             onClick={() => setMenuOpen(false)}
-            style={{ animation: 'slideUp 0.3s ease forwards 250ms', opacity: 0 }}
+            style={{ animation: 'slideUp 0.4s ease forwards 280ms', opacity: 0 }}
           >
             Get Started
             <ArrowIcon />

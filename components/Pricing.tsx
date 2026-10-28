@@ -146,9 +146,9 @@ export default function Pricing() {
             <article
               key={plan.key}
               className={`plan-card plan-card--${plan.tone}`}
-              data-reveal="scale"
+              data-reveal="flipup"
               data-billing={billing}
-              style={{ '--reveal-delay': `${index * 150}ms` } as CSSProperties}
+              style={{ '--reveal-delay': `${index * 200}ms` } as CSSProperties}
             >
               <h3>{plan.name}</h3>
               <p className="plan-desc">{plan.desc}</p>

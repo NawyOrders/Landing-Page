@@ -28,7 +28,7 @@ export default function Hero() {
 
         <div className="hero-inner">
           <div className="hero-copy">
-            <span className="chip chip--shine hero-badge" data-reveal="scale" style={{ '--reveal-delay': '50ms' } as any}>Smart Restaurant Management</span>
+            <span className="chip chip--shine hero-badge" data-reveal="flip" style={{ '--reveal-delay': '50ms' } as any}>Smart Restaurant Management</span>
             <h1 className="hero-title" data-reveal style={{ '--reveal-delay': '150ms' } as any}>
               <span>Your Restaurant.</span>
               <span>Your Orders</span>
@@ -55,7 +55,7 @@ export default function Hero() {
                 alt=""
                 aria-hidden="true"
               />
-              <a className="btn btn--primary hero-cta" href="#features">
+              <a className="btn btn--primary hero-cta" href="#features" style={{ animation: 'pulseGentle 2s ease-in-out infinite' }}>
                 Explore Nawy Orders
                 <ArrowIcon />
               </a>
@@ -63,7 +63,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-visual" data-reveal="right" style={{ '--reveal-delay': '200ms' } as any}>
+        <div className="hero-visual" data-reveal="zoom" style={{ '--reveal-delay': '200ms' } as any}>
           <img
             src="/images/hero-visual.jpg"
             width="792"

@@ -48,8 +48,8 @@ export default function Brand() {
             <article
               key={phone.title}
               className="brand-card"
-              data-reveal="scale"
-              style={{ '--reveal-delay': `${index * 150}ms` } as CSSProperties}
+              data-reveal="zoom"
+              style={{ '--reveal-delay': `${index * 180}ms` } as CSSProperties}
             >
               <div className="brand-visual">
                 <img
