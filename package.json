@@ -17,6 +17,11 @@
     "parity": "node scripts/hero-parity.mjs",
     "parity:spacing": "node scripts/spacing-parity.mjs",
     "parity:navbar": "node scripts/navbar-parity.mjs",
+    "test": "node --test tests/e2e/hero-parity.spec.ts tests/e2e/spacing-parity.spec.ts",
+    "test:hero": "node --test tests/e2e/hero-parity.spec.ts",
+    "test:spacing": "node --test tests/e2e/spacing-parity.spec.ts",
+    "parity": "node scripts/hero-parity.mjs",
+    "parity:spacing": "node scripts/spacing-parity.mjs",
     "generate:icons": "node scripts/generate-pwa-icons.mjs",
     "generate:qr": "node scripts/generate-register-qr.mjs"
   },
