@@ -3783,8 +3783,14 @@ section[id] {
   transform-origin: right;
 }
 
-[dir='rtl'] .header-brand-name,
+[dir='rtl'] .header-brand-name {
+  letter-spacing: 0;
+}
+
 [dir='rtl'] .footer-watermark {
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
   letter-spacing: 0;
 }
 
