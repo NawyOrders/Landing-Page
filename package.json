@@ -9,6 +9,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/e2e/hero-parity.spec.ts",
+    "test:hero": "node --test tests/e2e/hero-parity.spec.ts",
+    "parity": "node scripts/hero-parity.mjs",
     "generate:icons": "node scripts/generate-pwa-icons.mjs",
     "generate:qr": "node scripts/generate-register-qr.mjs"
   },
