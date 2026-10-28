@@ -62,8 +62,9 @@ export async function generateMetadata({
 
   return {
     ...baseMetadata,
+    applicationName: isArabic ? 'ناوى اوردرز' : baseMetadata.applicationName,
     title: isArabic
-      ? 'ناوي أوردرز — مطعمك. طلباتك. كلها في مكان واحد.'
+      ? 'ناوى اوردرز — مطعمك. طلباتك. كلها في مكان واحد.'
       : baseMetadata.title,
     description: isArabic
       ? 'أدر طلبات مطعمك، بسّط عملياتك اليومية، وقدم تجربة أفضل لعملائك — كل ذلك من منصة واحدة قوية. بدون عمولة، لوحة تحكم ذكية، وتطبيق بهوية مطعمك.'

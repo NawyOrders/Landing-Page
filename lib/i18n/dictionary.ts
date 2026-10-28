@@ -1,4 +1,5 @@
 export type Dictionary = {
+  brandName: string;
   header: {
     nav: {
       home: string;

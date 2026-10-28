@@ -1,6 +1,7 @@
 import type { Dictionary } from './dictionary';
 
 export const en: Dictionary = {
+  brandName: 'Nawy Orders',
   header: {
     nav: {
       home: 'Home',

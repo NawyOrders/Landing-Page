@@ -53,9 +53,9 @@ export default function Header({ dict, locale }: { dict: Dictionary; locale?: Lo
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <div className="header-inner">
-        <a className="header-brand" href="#home" aria-label="Nawy Orders home">
+        <a className="header-brand" href="#home" aria-label={dict.brandName}>
           <LogoMark />
-          <span className="header-brand-name">Nawy Orders</span>
+          <span className="header-brand-name">{dict.brandName}</span>
         </a>
 
         <nav className="main-nav" aria-label="Primary">
