@@ -1,0 +1,434 @@
+[
+  {
+    "viewport": {
+      "width": 2560,
+      "height": 1440
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 2560,
+        "scrollWidth": 2560,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 2560,
+        "scrollWidth": 2560,
+        "overflow": false
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 1920,
+        "scrollWidth": 1920,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 1920,
+        "scrollWidth": 1920,
+        "overflow": false
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 1600,
+        "scrollWidth": 1600,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 1600,
+        "scrollWidth": 1600,
+        "overflow": false
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 1440,
+        "scrollWidth": 1440,
+        "overflow": false
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 1366,
+        "scrollWidth": 1366,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 1366,
+        "scrollWidth": 1366,
+        "overflow": false
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 1280,
+        "scrollWidth": 1280,
+        "overflow": false
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 1024,
+        "scrollWidth": 1024,
+        "overflow": false
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 834,
+      "height": 1112
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 834,
+        "scrollWidth": 834,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 834,
+        "scrollWidth": 834,
+        "overflow": false
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 768,
+        "scrollWidth": 768,
+        "overflow": false
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 430,
+      "height": 932
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 430,
+        "scrollWidth": 430,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 430,
+        "scrollWidth": 430,
+        "overflow": false
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 390,
+        "scrollWidth": 390,
+        "overflow": false
+      }
+    }
+  },
+  {
+    "viewport": {
+      "width": 360,
+      "height": 800
+    },
+    "compared": 529,
+    "failures": [],
+    "structure": [
+      {
+        "path": "html:0>body:1>footer:4>div:1>div:1>p:0>span:0",
+        "tag": "span",
+        "className": "spacetech",
+        "enValue": "present",
+        "arValue": "missing"
+      },
+      {
+        "path": "html:0>body:1>main:3>section:0>div:0>div:1>div:0>p:2>span:0",
+        "tag": "span",
+        "className": "hero-nowrap",
+        "enValue": "missing",
+        "arValue": "present"
+      }
+    ],
+    "metrics": {
+      "en": {
+        "innerWidth": 360,
+        "scrollWidth": 360,
+        "overflow": false
+      },
+      "ar": {
+        "innerWidth": 360,
+        "scrollWidth": 360,
+        "overflow": false
+      }
+    }
+  }
+]
