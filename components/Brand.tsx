@@ -1,24 +1,30 @@
 import type { CSSProperties } from 'react';
+import type { Dictionary } from '@/lib/i18n/dictionary';
 
 const phones = [
   {
     image: '/images/brand-pink.jpg',
-    title: 'Appetite Boost',
-    sub: 'Colors that drive sales',
   },
   {
     image: '/images/brand-yellow.jpg',
-    title: 'Natural Vibes',
-    sub: 'Fresh and organic feel',
   },
   {
     image: '/images/brand-green.jpg',
-    title: 'Cool Trust',
-    sub: 'Builds customer confidence',
   },
 ];
 
-export default function Brand() {
+export default function Brand({ dict }: { dict?: Dictionary } = {}) {
+  const items = dict?.brand.items || [
+    { title: 'Appetite Boost', sub: 'Colors that drive sales' },
+    { title: 'Natural Vibes', sub: 'Fresh and organic feel' },
+    { title: 'Cool Trust', sub: 'Builds customer confidence' },
+  ];
+  const title1 = dict?.brand.title1 || 'We provide you with an app';
+  const title2 = dict?.brand.title2 || 'customized';
+  const title3 = dict?.brand.title3 || 'exclusively for';
+  const title4 = dict?.brand.title4 || 'your brand identity';
+  const subtitle = dict?.brand.subtitle || "As soon as you send us your restaurant's logo and colors, we will create your app with your complete visual identity.";
+
   return (
     <section id="brand" className="brand-section">
       <img
@@ -33,35 +39,32 @@ export default function Brand() {
       <div className="container">
         <div className="brand-head" data-reveal style={{ '--reveal-delay': '50ms' } as CSSProperties}>
           <h2 className="section-title">
-            We provide you with an app <span className="accent">customized</span>{' '}
+            {title1} <span className="accent">{title2}</span>{' '}
             <br />
-            exclusively for <span className="accent">your</span> brand identity
+            {title3} <span className="accent">{title4.split(' ')[0]}</span> {title4.split(' ').slice(1).join(' ')}
           </h2>
-          <p>
-            As soon as you send us your restaurant&apos;s logo and colors, we will create your app
-            with your complete visual identity.
-          </p>
+          <p>{subtitle}</p>
         </div>
 
         <div className="brand-grid">
-          {phones.map((phone, index) => (
+          {items.map((item, index) => (
             <article
-              key={phone.title}
+              key={item.title}
               className="brand-card"
               data-reveal="zoom"
               style={{ '--reveal-delay': `${index * 180}ms` } as CSSProperties}
             >
               <div className="brand-visual">
                 <img
-                  src={phone.image}
+                  src={phones[index]?.image || '/images/brand-pink.jpg'}
                   width="400"
                   height="500"
-                  alt={`Nawy Orders app with a ${phone.title.toLowerCase()} color theme`}
+                  alt={`Nawy Orders app with a ${item.title.toLowerCase()} color theme`}
                   loading="lazy"
                 />
               </div>
-              <h3>{phone.title}</h3>
-              <p>{phone.sub}</p>
+              <h3>{item.title}</h3>
+              <p>{item.sub}</p>
             </article>
           ))}
         </div>

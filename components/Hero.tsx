@@ -1,7 +1,8 @@
 import { ArrowIcon } from './Icons';
 import FeatureStrip from './FeatureStrip';
+import type { Dictionary } from '@/lib/i18n/dictionary';
 
-export default function Hero() {
+export default function Hero({ dict }: { dict: Dictionary }) {
   return (
     <section id="home" className="hero">
       <div className="hero-card">
@@ -28,15 +29,17 @@ export default function Hero() {
 
         <div className="hero-inner">
           <div className="hero-copy">
-            <span className="chip chip--shine hero-badge" data-reveal="flip" style={{ '--reveal-delay': '50ms' } as any}>Smart Restaurant Management</span>
+            <span className="chip chip--shine hero-badge" data-reveal="flip" style={{ '--reveal-delay': '50ms' } as any}>{dict.hero.badge}</span>
             <h1 className="hero-title" data-reveal style={{ '--reveal-delay': '150ms' } as any}>
-              <span>Your Restaurant.</span>
-              <span>Your Orders</span>
-              <em>All in One Place</em>
+              <span>{dict.hero.title1}</span>
+              <span>{dict.hero.title2}</span>
+              <em>
+                {dict.hero.title3}{' '}
+                <span className="hero-title-em">{dict.hero.title3Em}</span>
+              </em>
             </h1>
             <p className="hero-text" data-reveal style={{ '--reveal-delay': '250ms' } as any}>
-              Manage orders, simplify daily operations, and deliver a better customer experience
-              &nbsp;all from one powerful platform.
+              {dict.hero.text}
             </p>
             <div className="hero-cta-wrap" data-reveal style={{ '--reveal-delay': '350ms' } as any}>
               <img
@@ -56,7 +59,7 @@ export default function Hero() {
                 aria-hidden="true"
               />
               <a className="btn btn--primary hero-cta" href="#features" style={{ animation: 'pulseGentle 2s ease-in-out infinite' }}>
-                Explore Nawy Orders
+                {dict.hero.cta}
                 <ArrowIcon />
               </a>
             </div>
@@ -84,7 +87,7 @@ export default function Hero() {
         />
       </div>
 
-      <FeatureStrip />
+      <FeatureStrip dict={dict} />
     </section>
   );
 }

@@ -1,9 +1,10 @@
 import { REGISTER_URL } from './links';
+import type { Dictionary } from '@/lib/i18n/dictionary';
 
-export default function QrPanel() {
+export default function QrPanel({ dict }: { dict?: Dictionary } = {}) {
   return (
     <div className="qr-card" data-reveal>
-      <p className="qr-card-title">Scan the QR code to go to the form</p>
+      <p className="qr-card-title">{dict?.qrCta.cardTitle || 'Scan the QR code to go to the form'}</p>
       <div className="qr-box">
         <img
           className="qr-svg"
@@ -14,7 +15,7 @@ export default function QrPanel() {
         />
       </div>
       <a className="qr-direct" href={REGISTER_URL}>
-        <span className="qr-direct-fill">Go to the form directly</span>
+        <span className="qr-direct-fill">{dict?.qrCta.button || 'Go to the form directly'}</span>
       </a>
     </div>
   );

@@ -34,13 +34,22 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-sans);
+  font-family: 'Poppins', var(--font-sans);
   font-size: 16px;
   color: var(--ink);
   background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+[dir='rtl'] body {
+  font-family: 'Cairo', var(--font-sans);
+}
+
+[dir='rtl'] .hero-title em {
+  font-family: 'Cairo', var(--font-sans);
+  font-style: normal;
 }
 
 img {
@@ -375,6 +384,49 @@ section[id] {
 .header-cta svg {
   width: 18px;
   height: 18px;
+}
+
+.header-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid #eeddd4;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.header-lang .lang-btn {
+  min-width: 44px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #241b15;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.header-lang .lang-btn:hover {
+  background: #fff1ee;
+}
+
+.header-lang .lang-btn.is-active {
+  background: var(--red);
+  color: #fff;
+}
+
+.header-lang--mobile {
+  justify-self: start;
+  margin-top: 4px;
+}
+
+[dir='rtl'] .header-lang--mobile {
+  justify-self: end;
 }
 
 .menu-toggle {
@@ -3717,3 +3769,24 @@ section[id] {
     transform: none;
   }
 }
+
+[dir='rtl'] .mobile-link {
+  text-align: right;
+}
+
+[dir='rtl'] .mobile-link:hover {
+  padding-left: 2px;
+  padding-right: 8px;
+}
+
+[dir='rtl'] .nav-link::after {
+  transform-origin: right;
+}
+
+
+@media (max-width: 1023px) {
+  .header-actions > .header-lang:not(.header-lang--mobile) {
+    display: none;
+  }
+}
+

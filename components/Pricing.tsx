@@ -3,62 +3,16 @@
 import { useId, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { CheckIcon } from './Icons';
 import RegisterLink from './RegisterLink';
-
-const plans = [
-  {
-    key: 'start',
-    name: 'Start',
-    desc: 'For restaurants starting their journey',
-    tone: 'light',
-    prices: {
-      yearly: [
-        { amount: '15,000 EGP', term: '/ 3 months' },
-        { amount: '32,000 EGP', term: '/ 6 Months' },
-        { amount: '60,000 EGP', term: '/ 12 months' },
-      ],
-      monthly: [{ amount: '6,000 EGP', term: '/ month' }],
-    },
-    features: [
-      { text: 'Menu and item management' },
-      { text: 'Daily sales reports' },
-      { text: 'Two connected branches' },
-      { text: 'Email support' },
-      { text: 'Website, PWA' },
-      { text: 'Android and iOS app', disabled: true },
-    ],
-    cta: 'Get Started',
-  },
-  {
-    key: 'growth',
-    name: 'Growth',
-    desc: 'For growing and expanding restaurants',
-    tone: 'dark',
-    prices: {
-      yearly: [
-        { amount: '17,000 EGP', term: '/ 3 months' },
-        { amount: '34,000 EGP', term: '/ 6 months' },
-      ],
-      monthly: [{ amount: '7,000 EGP', term: '/ month' }],
-    },
-    features: [
-      { text: 'Menu and item management' },
-      { text: 'Daily sales reports' },
-      { text: 'Two connected branches' },
-      { text: 'Email support' },
-      { text: 'Website, PWA' },
-      { text: 'Android and iOS app' },
-    ],
-    cta: 'Get Started',
-  },
-];
+import type { Dictionary } from '@/lib/i18n/dictionary';
+import type { Locale } from '@/lib/i18n';
 
 type Billing = 'monthly' | 'yearly';
 
-export default function Pricing() {
+export default function Pricing({ dict, locale }: { dict: Dictionary; locale?: Locale }) {
+  const plans = dict.pricing.plans;
   const [billing, setBilling] = useState<Billing>('yearly');
   const yearly = billing === 'yearly';
   const plansId = useId();
-  const billingNote = yearly ? 'Billed yearly — choose your term' : 'Billed monthly';
 
   function handleBillingKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     const { key } = event;
@@ -96,10 +50,10 @@ export default function Pricing() {
       <div className="container">
         <header className="pricing-head" data-reveal>
           <h2 className="section-title">
-            Two packages to <span className="accent">suit</span> every stage
+            {dict.pricing.title1} <span className="accent">{dict.pricing.title2}</span> {locale === 'ar' ? '' : 'every stage'}
           </h2>
           <p className="section-sub">
-            Choose the package that fits your restaurant and start today
+            {dict.pricing.subtitle}
           </p>
         </header>
 
@@ -119,7 +73,7 @@ export default function Pricing() {
             tabIndex={billing === 'monthly' ? 0 : -1}
             onClick={() => setBilling('monthly')}
           >
-            Monthly
+            {dict.pricing.monthly}
           </button>
           <button
             type="button"
@@ -129,12 +83,12 @@ export default function Pricing() {
             tabIndex={billing === 'yearly' ? 0 : -1}
             onClick={() => setBilling('yearly')}
           >
-            Yearly
+            {dict.pricing.yearly}
           </button>
         </div>
 
         <p className="billing-note" aria-live="polite" aria-atomic="true">
-          <span key={billing}>{billingNote}</span>
+          <span key={billing}>{yearly ? dict.pricing.billingNoteYearly : dict.pricing.billingNoteMonthly}</span>
         </p>
 
         <div
@@ -145,10 +99,10 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <article
               key={plan.key}
-              className={`plan-card plan-card--${plan.tone}`}
+              className={`plan-card plan-card--${plan.key === 'growth' ? 'dark' : 'light'}`}
               data-reveal="flipup"
               data-billing={billing}
-              style={{ '--reveal-delay': `${index * 200}ms` } as CSSProperties}
+              style={{ '--reveal-delay': `${index * 160}ms` } as CSSProperties}
             >
               <h3>{plan.name}</h3>
               <p className="plan-desc">{plan.desc}</p>
