@@ -10,6 +10,7 @@ import '@fontsource/cairo/600.css';
 import '@fontsource/cairo/700.css';
 import '@fontsource/cairo/800.css';
 import '@fontsource/yellowtail/400.css';
+import { Aref_Ruqaa } from 'next/font/google';
 import '../globals.css';
 import ScrollReveal from '../../components/ScrollReveal';
 import StartRedirect from '../../components/StartRedirect';
@@ -18,6 +19,13 @@ import { localeConfig } from '@/lib/i18n/config';
 import { locales, defaultLocale, type Locale } from '@/lib/i18n';
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
+
+const arefRuqaa = Aref_Ruqaa({
+  subsets: ['arabic', 'latin'],
+  weight: '700',
+  variable: '--font-aref-ruqaa',
+  display: 'swap',
+});
 
 const baseMetadata: Metadata = {
   title: 'Nawy Orders — Your Restaurant. Your Orders. All in One Place.',
@@ -95,7 +103,7 @@ export default async function LocaleLayout({
   const config = localeConfig[loc];
 
   return (
-    <html lang={loc} dir={config.direction}>
+    <html lang={loc} dir={config.direction} className={arefRuqaa.variable}>
       <body>
         <a className="skip-link" href="#main">
           {loc === 'ar' ? 'تخطَّ إلى المحتوى' : 'Skip to content'}

@@ -24,7 +24,7 @@ export default async function Home({
     <>
       <Header dict={dict} locale={loc} />
       <main id="main">
-        <Hero dict={dict} />
+        <Hero dict={dict} locale={loc} />
         <Features dict={dict} />
         <Steps dict={dict} />
         <Brand dict={dict} />
