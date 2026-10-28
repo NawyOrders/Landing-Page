@@ -1,8 +1,29 @@
+import type { CSSProperties, ReactNode } from 'react';
 import { ArrowIcon } from './Icons';
 import FeatureStrip from './FeatureStrip';
 import type { Dictionary } from '@/lib/i18n/dictionary';
+import type { Locale } from '@/lib/i18n';
 
-export default function Hero({ dict }: { dict: Dictionary }) {
+type RevealStyle = CSSProperties & { '--reveal-delay': string };
+
+const revealStyle = (delay: string): RevealStyle => ({ '--reveal-delay': delay });
+
+function HeroText({ text, locale }: { text: string; locale: Locale }): ReactNode {
+  if (locale !== 'ar') return text;
+
+  const match = /^(.*?)([،,—–]\s*\S+)([\s\S]*)$/.exec(text);
+  if (!match) return text;
+
+  return (
+    <>
+      {match[1]}
+      <span className="hero-nowrap">{match[2]}</span>
+      {match[3]}
+    </>
+  );
+}
+
+export default function Hero({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   return (
     <section id="home" className="hero">
       <div className="hero-card">
@@ -29,8 +50,8 @@ export default function Hero({ dict }: { dict: Dictionary }) {
 
         <div className="hero-inner">
           <div className="hero-copy">
-            <span className="chip chip--shine hero-badge" data-reveal="flip" style={{ '--reveal-delay': '50ms' } as any}>{dict.hero.badge}</span>
-            <h1 className="hero-title" data-reveal style={{ '--reveal-delay': '150ms' } as any}>
+            <span className="chip chip--shine hero-badge" data-reveal="flip" style={revealStyle('50ms')}>{dict.hero.badge}</span>
+            <h1 className="hero-title" data-reveal style={revealStyle('150ms')}>
               <span>{dict.hero.title1}</span>
               <span>{dict.hero.title2}</span>
               <em>
@@ -38,10 +59,10 @@ export default function Hero({ dict }: { dict: Dictionary }) {
                 <span className="hero-title-em">{dict.hero.title3Em}</span>
               </em>
             </h1>
-            <p className="hero-text" data-reveal style={{ '--reveal-delay': '250ms' } as any}>
-              {dict.hero.text}
+            <p className="hero-text" data-reveal style={revealStyle('250ms')}>
+              <HeroText text={dict.hero.text} locale={locale} />
             </p>
-            <div className="hero-cta-wrap" data-reveal style={{ '--reveal-delay': '350ms' } as any}>
+            <div className="hero-cta-wrap" data-reveal style={revealStyle('350ms')}>
               <img
                 className="hero-spark hero-spark--cta"
                 src="/images/spark-burst.png"
@@ -60,13 +81,13 @@ export default function Hero({ dict }: { dict: Dictionary }) {
               />
               <a className="btn btn--primary hero-cta" href="#features" style={{ animation: 'pulseGentle 2s ease-in-out infinite' }}>
                 {dict.hero.cta}
-                <ArrowIcon />
+                <ArrowIcon className="hero-cta-arrow" />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="hero-visual" data-reveal="zoom" style={{ '--reveal-delay': '200ms' } as any}>
+        <div className="hero-visual" data-reveal="zoom" style={revealStyle('200ms')}>
           <img
             src="/images/hero-visual.jpg"
             width="792"
@@ -83,7 +104,6 @@ export default function Hero({ dict }: { dict: Dictionary }) {
           height="158"
           alt=""
           aria-hidden="true"
-          style={{ animation: 'float 3s ease-in-out infinite' } as any}
         />
       </div>
 
