@@ -22,6 +22,7 @@ type Box = { x: number; y: number; right: number; bottom: number; width: number;
 type Snapshot = {
   position: string;
   insetTop: string;
+  boxShadow: string;
   scrolled: boolean;
   header: Box;
   toggleVisible: boolean;
@@ -71,10 +72,13 @@ function cssRules(): Array<{ selector: string; body: string }> {
 test('sticky header uses a scroll-safe root and one anchor offset', () => {
   const rules = cssRules();
   const header = rules.find((rule) => rule.selector === '.site-header');
+  const scrolledHeader = rules.find((rule) => rule.selector === '.site-header.is-scrolled');
   const body = rules.find((rule) => rule.selector === 'body');
   assert.ok(header, 'Missing .site-header rule');
   assert.match(header.body, /position\s*:\s*sticky/);
   assert.match(header.body, /top\s*:\s*0(?:px)?\s*;/);
+  assert.ok(scrolledHeader, 'Missing .site-header.is-scrolled rule');
+  assert.match(scrolledHeader.body, /box-shadow\s*:/);
   assert.ok(body, 'Missing body rule');
   assert.match(body.body, /overflow-x\s*:\s*clip/);
   assert.doesNotMatch(body.body, /overflow-x\s*:\s*(?:hidden|auto|scroll)/);
@@ -116,6 +120,23 @@ test(
         assert.deepEqual(result.failures, [], `${name}: navbar scroll parity mismatch`);
         assert.equal(result.en.top.position, 'sticky', `${name}: EN header is not sticky`);
         assert.equal(result.ar.top.position, 'sticky', `${name}: AR header is not sticky`);
+        assert.equal(result.en.top.boxShadow, 'none', `${name}: EN header has a top shadow`);
+        assert.equal(result.ar.top.boxShadow, 'none', `${name}: AR header has a top shadow`);
+        assert.notEqual(
+          result.en.scrolled.boxShadow,
+          'none',
+          `${name}: EN header has no scroll shadow`
+        );
+        assert.notEqual(
+          result.ar.scrolled.boxShadow,
+          'none',
+          `${name}: AR header has no scroll shadow`
+        );
+        assert.equal(
+          result.en.scrolled.boxShadow,
+          result.ar.scrolled.boxShadow,
+          `${name}: scroll shadow differs by locale`
+        );
         assert.ok(
           Math.abs(result.en.scrolled.header.y) <= 2,
           `${name}: EN header scrolled away`
