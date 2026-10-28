@@ -139,38 +139,64 @@ section[id] {
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 .btn--primary {
   padding: 21px 34px;
   font-size: 17px;
   color: #fff;
-  background: var(--red-strong);
+  background: linear-gradient(135deg, var(--red-strong) 0%, var(--red-bright) 100%);
   box-shadow: 0 14px 24px -16px rgba(228, 56, 32, 0.5);
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    filter 0.25s ease;
+    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
 }
 
 .btn--primary svg {
   width: 19px;
   height: 19px;
-  transition: transform 0.25s ease;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  z-index: 1;
 }
 
 .btn--primary:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 24px 40px -16px rgba(228, 56, 32, 0.65);
-  filter: saturate(1.08);
+  transform: translateY(-4px) scale(1.03) rotateX(2deg);
+  box-shadow: 0 28px 48px -16px rgba(228, 56, 32, 0.75);
+  filter: saturate(1.1) brightness(1.05);
 }
 
 .btn--primary:hover svg {
-  transform: translateX(4px);
+  transform: translateX(6px);
 }
 
 .btn--primary:active {
-  transform: translateY(0) scale(0.99);
+  transform: translateY(-1px) scale(0.98) rotateX(0deg);
+}
+
+.btn > * {
+  position: relative;
+  z-index: 1;
 }
 
 .chip {
@@ -746,10 +772,12 @@ section[id] {
   border-radius: 19px;
   background: linear-gradient(145deg, #ffffff 0%, #fef7f3 100%);
   box-shadow: 0 16px 34px -30px rgba(80, 40, 10, 0.32);
+  transform-style: preserve-3d;
+  perspective: 1000px;
   transition:
-    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.4s ease,
-    border-color 0.4s ease;
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
 }
 
 .feature-card-head {
@@ -1302,10 +1330,12 @@ section[id] {
   padding: 71.5px 54px 64px 63.5px;
   overflow: hidden;
   border-radius: 34px;
+  transform-style: preserve-3d;
+  perspective: 1200px;
   transition:
-    transform 0.42s cubic-bezier(0.22, 0.61, 0.36, 1),
-    box-shadow 0.42s ease,
-    border-color 0.42s ease;
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
 }
 
 .plan-card--light {
@@ -2334,7 +2364,7 @@ section[id] {
     transform: translateY(0px) rotate(-1deg);
   }
   50% {
-    transform: translateY(-16px) rotate(1deg);
+    transform: translateY(-18px) rotate(1deg);
   }
 }
 
@@ -2354,7 +2384,7 @@ section[id] {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.02);
+    transform: scale(1.03);
   }
 }
 
@@ -2371,11 +2401,11 @@ section[id] {
 /* Flip horizontal */
 @keyframes flipHorizontal {
   from {
-    transform: perspective(800px) rotateY(-90deg);
+    transform: perspective(1000px) rotateY(-90deg);
     opacity: 0;
   }
   to {
-    transform: perspective(800px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
     opacity: 1;
   }
 }
@@ -2383,11 +2413,11 @@ section[id] {
 /* Flip vertical */
 @keyframes flipVertical {
   from {
-    transform: perspective(800px) rotateX(-90deg);
+    transform: perspective(1000px) rotateX(-90deg);
     opacity: 0;
   }
   to {
-    transform: perspective(800px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
     opacity: 1;
   }
 }
@@ -2400,10 +2430,10 @@ section[id] {
   }
   50% {
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.08);
   }
   70% {
-    transform: scale(0.9);
+    transform: scale(0.92);
   }
   100% {
     transform: scale(1);
@@ -2414,7 +2444,7 @@ section[id] {
 @keyframes rotateIn {
   from {
     opacity: 0;
-    transform: rotate(-200deg) scale(0.5);
+    transform: rotate(-200deg) scale(0.4);
   }
   to {
     opacity: 1;
@@ -2426,7 +2456,7 @@ section[id] {
 @keyframes zoomIn {
   from {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.75);
   }
   to {
     opacity: 1;
@@ -2440,20 +2470,43 @@ section[id] {
     transform: rotate(0deg);
   }
   25% {
-    transform: rotate(-3deg);
+    transform: rotate(-4deg);
   }
   75% {
-    transform: rotate(3deg);
+    transform: rotate(4deg);
   }
 }
 
 /* Glow pulse */
 @keyframes glowPulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(228, 56, 32, 0.7);
+    box-shadow: 0 0 0 0 rgba(228, 56, 32, 0.8);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(228, 56, 32, 0);
+    box-shadow: 0 0 0 12px rgba(228, 56, 32, 0);
+  }
+}
+
+/* Card flip */
+@keyframes cardFlip {
+  0% {
+    transform: perspective(1200px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(1200px) rotateY(90deg);
+  }
+  100% {
+    transform: perspective(1200px) rotateY(0deg);
+  }
+}
+
+/* 3D hover lift */
+@keyframes lift3d {
+  from {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0);
+  }
+  to {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(20px);
   }
 }
 
@@ -3504,42 +3557,42 @@ section[id] {
   }
 
   .feature-card:hover {
-    transform: translateY(-10px) scale(1.03);
+    transform: translateY(-12px) scale(1.04) rotateX(3deg) rotateY(-2deg);
     border-color: #f0c4b8;
-    box-shadow: 0 42px 66px -28px rgba(120, 50, 20, 0.55);
+    box-shadow: 0 48px 76px -28px rgba(120, 50, 20, 0.62);
   }
 
   .feature-card:hover .feature-icon {
-    transform: translateY(-4px) rotate(-12deg) scale(1.12);
+    transform: translateY(-6px) rotate(-15deg) scale(1.15);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.52),
-      0 28px 40px -14px rgba(240, 90, 30, 0.95);
+      0 34px 48px -14px rgba(240, 90, 30, 1);
   }
 
   .plan-card:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-12px) scale(1.03) rotateX(2deg) rotateY(-1deg);
   }
 
   .plan-card--light:hover {
     border-color: #dedee2;
     box-shadow:
-      0 60px 100px -46px rgba(30, 20, 10, 0.6),
+      0 70px 120px -46px rgba(30, 20, 10, 0.7),
       inset 0 1px 0 #fff;
   }
 
   .plan-card--dark:hover {
     border-color: #4b4b4b;
     box-shadow:
-      0 66px 108px -46px rgba(0, 0, 0, 0.8),
-      0 0 0 1px rgba(238, 87, 44, 0.25);
+      0 76px 128px -46px rgba(0, 0, 0, 0.85),
+      0 0 0 1px rgba(238, 87, 44, 0.35);
   }
 
   .plan-card:hover .plan-amount {
-    transform: translateY(-3px) scale(1.02);
+    transform: translateY(-4px) scale(1.03);
   }
 
   .plan-card:hover .check-icon {
-    transform: scale(1.12);
+    transform: scale(1.15);
   }
 
   .brand-card:hover .brand-visual {
