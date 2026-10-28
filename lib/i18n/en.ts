@@ -20,6 +20,7 @@ export const en: Dictionary = {
     title3Em: 'Place',
     text: 'Manage orders, simplify daily operations, and deliver a better customer experience — all from one powerful platform.',
     cta: 'Explore Nawy Orders',
+    imageAlt: 'Nawy Orders app on a phone and laptop, displayed on a wooden board with a burger and a soft drink',
   },
   featureStrip: {
     items: [

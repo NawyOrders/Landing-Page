@@ -18,6 +18,7 @@ export type Dictionary = {
     title3Em: string;
     text: string;
     cta: string;
+    imageAlt: string;
   };
   featureStrip: {
     items: Array<{ title: string; sub: string }>;
