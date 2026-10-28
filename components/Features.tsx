@@ -125,8 +125,8 @@ export default function Features() {
             <li
               key={feature.title}
               className="feature-card"
-              data-reveal
-              style={{ '--reveal-delay': `${(index % 3) * 100 + Math.floor(index/3)*150}ms` } as CSSProperties}
+              data-reveal="flip"
+              style={{ '--reveal-delay': `${(index % 3) * 120 + Math.floor(index/3)*180}ms` } as CSSProperties}
             >
               <div className="feature-card-head">
                 <span className="feature-icon">{feature.icon}</span>

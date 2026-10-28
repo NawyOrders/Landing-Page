@@ -42,8 +42,8 @@ export default function Faq() {
             {faqs.map((item, index) => (
               <details
                 key={item.q}
-                data-reveal
-                style={{ '--reveal-delay': `${index * 80}ms` } as CSSProperties}
+                data-reveal="left"
+                style={{ '--reveal-delay': `${index * 100}ms` } as CSSProperties}
               >
                 <summary>
                   {item.q}
@@ -65,8 +65,8 @@ export default function Faq() {
 
           <aside
             className="faq-aside"
-            data-reveal
-            style={{ '--reveal-delay': '360ms' } as CSSProperties}
+            data-reveal="right"
+            style={{ '--reveal-delay': '400ms' } as CSSProperties}
           >
             <span className="faq-aside-eyebrow">Need a hand?</span>
             <h3>Still have a question?</h3>

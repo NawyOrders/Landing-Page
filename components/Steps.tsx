@@ -79,7 +79,7 @@ export default function Steps() {
 
           <ol className="steps-list">
             {steps.map((step, index) => (
-              <li key={step.title} data-reveal style={{ '--reveal-delay': `${index * 120}ms` } as CSSProperties}>
+              <li key={step.title} data-reveal="left" style={{ '--reveal-delay': `${index * 140}ms` } as CSSProperties}>
                 <StepIcon />
                 <div>
                   <h3>{step.title}</h3>
