@@ -1,12 +1,13 @@
 import type { CSSProperties } from 'react';
 
-const steps = [
+import type { Dictionary } from '@/lib/i18n/dictionary';
+
+const stepsData = [
   {
     title: 'Subscribe',
     text: (
       <>
-        From subscribing until receiving your ready app…
-        <br className="step-break" /> all in a short time.
+        From subscribing until receiving your ready app—all in a short time.
       </>
     ),
   },
@@ -37,7 +38,17 @@ function StepIcon() {
   );
 }
 
-export default function Steps() {
+export default function Steps({ dict }: { dict?: Dictionary } = {}) {
+  const steps = dict?.steps.items || [
+    { title: 'Subscribe', text: 'From subscribing until receiving your ready app—all in a short time.' },
+    { title: 'Send the Logo', text: "Send us your restaurant's logo, name, and preferred colors, and leave the rest to us." },
+    { title: 'Receive your App', text: 'A ready app with your complete visual identity, published on Google Play and the App Store.' },
+  ];
+  const chip = dict?.steps.chip || 'How to Join';
+  const title1 = dict?.steps.title1 || 'Nawy Order solves the problem';
+  const title2 = dict?.steps.title2 || 'in 3 simple steps';
+  const intro = dict?.steps.intro || 'From subscribing until receiving your ready app—all in a short time.';
+
   return (
     <section id="how-to-join" className="steps-section">
       <img
@@ -66,16 +77,14 @@ export default function Steps() {
           style={{ '--reveal-delay': '150ms' } as CSSProperties}
         >
           <span className="steps-chip">
-            <span>How to Join</span>
+            <span>{chip}</span>
           </span>
           <h2 className="section-title">
-            Nawy Order solves the problem{' '}
+            {title1}{' '}
             <br />
-            in 3 simple steps
+            {title2}
           </h2>
-          <p className="steps-intro">
-            From subscribing until receiving your ready app… all in a short time.
-          </p>
+          <p className="steps-intro">{intro}</p>
 
           <ol className="steps-list">
             {steps.map((step, index) => (

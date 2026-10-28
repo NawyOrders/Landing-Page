@@ -1,7 +1,8 @@
 import type { CSSProperties } from 'react';
 import RegisterLink from './RegisterLink';
+import type { Dictionary } from '@/lib/i18n/dictionary';
 
-export default function DarkCta() {
+export default function DarkCta({ dict }: { dict?: Dictionary } = {}) {
   return (
     <section className="dark-cta torn-top torn-bottom">
       <div className="container dark-grid">
@@ -19,9 +20,9 @@ export default function DarkCta() {
           data-reveal="right"
           style={{ '--reveal-delay': '150ms' } as CSSProperties}
         >
-          <h2>More Orders, Lower Costs.</h2>
-          <p>Take your restaurant digital and easily double your profits.</p>
-          <RegisterLink className="btn btn--primary" style={{ animation: 'pulseGentle 2.5s ease-in-out infinite' }}>Start Now</RegisterLink>
+          <h2>{dict?.darkCta.title || 'More Orders, Lower Costs.'}</h2>
+          <p>{dict?.darkCta.subtitle || 'Take your restaurant digital and easily double your profits.'}</p>
+          <RegisterLink className="btn btn--primary" style={{ animation: 'pulseGentle 2.5s ease-in-out infinite' }}>{dict?.darkCta.cta || 'Start Now'}</RegisterLink>
         </div>
       </div>
     </section>

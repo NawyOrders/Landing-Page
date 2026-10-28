@@ -1,33 +1,5 @@
 import LogoMark from './LogoMark';
-
-const columns = [
-  {
-    title: 'Company',
-    links: [
-      { label: 'About Us', href: '#home' },
-      { label: 'Our Team', href: '#testimonials' },
-      { label: 'Careers', href: '#how-to-join' },
-      { label: 'Contact Us', href: '#get-started' },
-    ],
-  },
-  {
-    title: 'Product',
-    links: [
-      { label: 'Features', href: '#features' },
-      { label: 'Pricing', href: '#pricing' },
-      { label: 'Templates', href: '#brand' },
-      { label: 'FAQ', href: '#faq' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { label: 'Privacy Policy', href: '#home' },
-      { label: 'Terms and Conditions', href: '#home' },
-      { label: 'Refund Policy', href: '#home' },
-    ],
-  },
-];
+import type { Dictionary } from '@/lib/i18n/dictionary';
 
 const socials = [
   {
@@ -52,7 +24,36 @@ const socials = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({ dict }: { dict?: Dictionary } = {}) {
+  const footerData = dict?.footer;
+  const columns: Array<{ title: string; links: Array<{ label: string; href: string }> }> = footerData?.columns || [
+    {
+      title: 'Company',
+      links: [
+        { label: 'About Us', href: '#home' },
+        { label: 'Our Team', href: '#testimonials' },
+        { label: 'Careers', href: '#how-to-join' },
+        { label: 'Contact Us', href: '#get-started' },
+      ],
+    },
+    {
+      title: 'Product',
+      links: [
+        { label: 'Features', href: '#features' },
+        { label: 'Pricing', href: '#pricing' },
+        { label: 'Templates', href: '#brand' },
+        { label: 'FAQ', href: '#faq' },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { label: 'Privacy Policy', href: '#home' },
+        { label: 'Terms and Conditions', href: '#home' },
+        { label: 'Refund Policy', href: '#home' },
+      ],
+    },
+  ];
   return (
     <footer className="site-footer torn-top">
       <div className="footer-watermark-clip" aria-hidden="true">
@@ -67,16 +68,15 @@ export default function Footer() {
               <span>Nawy Orders</span>
             </div>
             <p>
-              A platform that helps restaurant owners build their own applications with their visual
-              identity easily and quickly.
+              {footerData?.description || 'A platform that helps restaurant owners build their own applications with their visual identity easily and quickly.'}
             </p>
           </div>
 
-          {columns.map((column) => (
+          {columns.map((column: any) => (
             <nav key={column.title} className="footer-col" aria-label={column.title}>
               <h3>{column.title}</h3>
               <ul>
-                {column.links.map((link) => (
+                {(column.links || []).map((link: any) => (
                   <li key={link.label}>
                     <a href={link.href}>{link.label}</a>
                   </li>
@@ -88,7 +88,10 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>
-            © 2026 Nawy Orders. All rights reserved to <span className="spacetech">SpaceTech</span>.
+            {footerData?.copyright || '© 2026 Nawy Orders. All rights reserved to'}{' '}
+            {/\bto\s*$/i.test(footerData?.copyright || '') && (
+              <span className="spacetech">{footerData?.copyrightName || 'SpaceTech'}.</span>
+            )}
           </p>
           <ul className="footer-socials">
             {socials.map((social) => (

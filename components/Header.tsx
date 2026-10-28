@@ -4,16 +4,18 @@ import { useEffect, useState } from 'react';
 import LogoMark from './LogoMark';
 import RegisterLink from './RegisterLink';
 import { ArrowIcon } from './Icons';
+import LanguageSwitcher from './LanguageSwitcher';
+import type { Dictionary } from '@/lib/i18n/dictionary';
+import type { Locale } from '@/lib/i18n';
 
-const navLinks = [
-  { id: 'home', label: 'Home', href: '#home' },
-  { id: 'features', label: 'Features', href: '#features' },
-  { id: 'how-to-join', label: 'How to join', href: '#how-to-join' },
-  { id: 'pricing', label: 'Plans', href: '#pricing' },
-  { id: 'faq', label: 'FAQ', href: '#faq' },
-];
-
-export default function Header() {
+export default function Header({ dict, locale }: { dict: Dictionary; locale?: Locale }) {
+  const navLinks = [
+    { id: 'home', label: dict.header.nav.home, href: '#home' },
+    { id: 'features', label: dict.header.nav.features, href: '#features' },
+    { id: 'how-to-join', label: dict.header.nav.howToJoin, href: '#how-to-join' },
+    { id: 'pricing', label: dict.header.nav.pricing, href: '#pricing' },
+    { id: 'faq', label: dict.header.nav.faq, href: '#faq' },
+  ];
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [active, setActive] = useState<string>('home');
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -70,8 +72,9 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
+          {locale && <LanguageSwitcher locale={locale} className="header-lang" />}
           <RegisterLink className="btn btn--primary header-cta" style={{ animation: 'slideDown 0.6s ease forwards 320ms', opacity: 0 }}>
-            Get Started
+            {dict.header.getStarted}
             <ArrowIcon />
           </RegisterLink>
           <button
@@ -104,12 +107,13 @@ export default function Header() {
               </a>
             ))}
           </nav>
+          {locale && <LanguageSwitcher locale={locale} className="header-lang header-lang--mobile" />}
           <RegisterLink
             className="btn btn--primary mobile-cta"
             onClick={() => setMenuOpen(false)}
             style={{ animation: 'slideUp 0.4s ease forwards 280ms', opacity: 0 }}
           >
-            Get Started
+            {dict.header.getStarted}
             <ArrowIcon />
           </RegisterLink>
         </div>

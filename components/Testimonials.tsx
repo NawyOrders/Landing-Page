@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
+import type { Dictionary } from '@/lib/i18n/dictionary';
 
-const testimonials = [
+const defaultTestimonials = [
   {
     name: 'Khaled Lamri',
     place: 'Burger kings',
@@ -24,7 +25,15 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+const avatars = ['/images/avatar-khaled.jpg', '/images/avatar-sara.jpg', '/images/avatar-ahmed.jpg'];
+
+export default function Testimonials({ dict }: { dict?: Dictionary } = {}) {
+  const testimonials = (dict?.testimonials.items || []).map((item, index) => ({
+    ...item,
+    avatar: avatars[index] || avatars[0],
+  }));
+  const items = testimonials.length ? testimonials : defaultTestimonials;
+
   return (
     <section id="testimonials" className="testimonials-section">
       <svg className="testi-clip-svg" aria-hidden="true" focusable="false">
@@ -52,18 +61,18 @@ export default function Testimonials() {
       <div className="container">
         <header className="testimonials-head" data-reveal>
           <h2 className="section-title">
-            What they say <span className="accent">about us</span>
+            {dict?.testimonials.title1 || 'What they say'} <span className="accent">{dict?.testimonials.title2 || 'about us'}</span>
           </h2>
           <p className="section-sub">
-            Real success stories from restaurants using Nawy Orders
+            {dict?.testimonials.subtitle || 'Real success stories from restaurants using Nawy Orders'}
           </p>
         </header>
 
         <div className="testimonials-grid">
-          {testimonials.map((item, index) => (
+          {items.map((item, index) => (
             <article
               key={item.name}
-              className={`testimonial-card${item.place === 'Burger kings' ? ' testimonial-card--float' : ''}`}
+              className={`testimonial-card${index === 0 ? ' testimonial-card--float' : ''}`}
               data-reveal="flip"
               style={{ '--reveal-delay': `${index * 150}ms` } as CSSProperties}
             >
@@ -79,7 +88,7 @@ export default function Testimonials() {
                 <h3>{item.name}</h3>
                 {item.place ? (
                   <p
-                    className={`testimonial-place${item.place === 'Burger kings' ? ' testi-place-float' : ''}`}
+                    className={`testimonial-place${index === 0 ? ' testi-place-float' : ''}`}
                   >
                     {item.place}
                   </p>
