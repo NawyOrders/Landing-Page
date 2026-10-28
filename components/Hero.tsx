@@ -71,7 +71,7 @@ export default function Hero({ dict }: { dict: Dictionary }) {
             src="/images/hero-visual.jpg"
             width="792"
             height="759"
-            alt="Nawy Orders app on a phone and laptop, displayed on a wooden board with a burger and a soft drink"
+            alt={dict.hero.imageAlt}
             fetchPriority="high"
           />
         </div>
