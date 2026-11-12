@@ -100,47 +100,19 @@ export const en: Dictionary = {
     cta: 'Start Now',
   },
   pricing: {
-    title1: 'Two packages to',
+    title1: 'One package to',
     title2: 'suit every stage',
-    subtitle: 'Choose the package that fits your restaurant and start today',
-    monthly: 'Monthly',
-    yearly: 'Yearly',
-    billingNoteMonthly: 'Billed monthly',
-    billingNoteYearly: 'Billed yearly — choose your term',
+    subtitle: 'One plan with flexible terms — pick what works for your restaurant',
     plans: [
       {
         key: 'start',
         name: 'Start',
-        desc: 'For restaurants starting their journey',
-        prices: {
-          yearly: [
-            { amount: '15,000 EGP', term: '/ 3 months' },
-            { amount: '32,000 EGP', term: '/ 6 Months' },
-            { amount: '60,000 EGP', term: '/ 12 months' },
-          ],
-          monthly: [{ amount: '6,000 EGP', term: '/ month' }],
-        },
-        features: [
-          { text: 'Menu and item management' },
-          { text: 'Daily sales reports' },
-          { text: 'Two connected branches' },
-          { text: 'Email support' },
-          { text: 'Website, PWA' },
-          { text: 'Android and iOS app', disabled: true },
+        desc: 'Everything you need to run your restaurant online',
+        prices: [
+          { amount: '16,000 EGP', term: '/ 3 months' },
+          { amount: '30,000 EGP', term: '/ 6 months' },
+          { amount: '60,000 EGP', term: '/ 12 months' },
         ],
-        cta: 'Get Started',
-      },
-      {
-        key: 'growth',
-        name: 'Growth',
-        desc: 'For growing and expanding restaurants',
-        prices: {
-          yearly: [
-            { amount: '17,000 EGP', term: '/ 3 months' },
-            { amount: '34,000 EGP', term: '/ 6 months' },
-          ],
-          monthly: [{ amount: '7,000 EGP', term: '/ month' }],
-        },
         features: [
           { text: 'Menu and item management' },
           { text: 'Daily sales reports' },
@@ -194,8 +166,8 @@ export const en: Dictionary = {
         a: 'From subscribing until receiving your ready app, everything happens in a short time. Our team contacts you within 48 hours and walks you through the whole process.',
       },
       {
-        q: 'What is included in the plans?',
-        a: 'Both packages include menu and item management, daily sales reports, two connected branches, email support, and a website/PWA. Growth adds the Android and iOS app.',
+        q: 'What is included in the Start plan?',
+        a: 'The Start plan includes menu and item management, daily sales reports, two connected branches, email support, a website/PWA, and the Android and iOS app. Choose 3 months for 16,000 EGP, 6 months for 30,000 EGP, or 12 months for 60,000 EGP.',
       },
       {
         q: 'Can the app match my restaurant brand?',
