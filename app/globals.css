@@ -573,12 +573,17 @@ a {
 .hero-inner {
   position: relative;
   z-index: 2;
+  display: flex;
+  justify-content: flex-start;
   padding-block-start: 184px;
   padding-inline-start: 97px;
 }
 
 .hero-copy {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   max-width: 600px;
 }
 
@@ -761,6 +766,42 @@ a {
 [dir='rtl'] .hero-text {
   min-block-size: calc(3 * 29px);
   text-wrap: pretty;
+}
+
+[dir='ltr'] .hero-copy {
+  margin-inline-start: auto;
+  text-align: end;
+}
+
+[dir='ltr'] .hero-title {
+  align-items: flex-end;
+}
+
+[dir='ltr'] .hero-text {
+  margin-inline-start: auto;
+}
+
+[dir='ltr'] .hero-blob {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+  transform: scaleX(-1);
+}
+
+@media (min-width: 1120px) {
+  [dir='ltr'] .hero-inner {
+    padding-inline-start: 40px;
+    padding-inline-end: 97px;
+  }
+
+  [dir='ltr'] .hero-visual {
+    inset-inline-start: -16px;
+    inset-inline-end: auto;
+  }
+
+  [dir='ltr'] .hero-fries {
+    inset-inline-start: auto;
+    inset-inline-end: -10px;
+  }
 }
 
 @keyframes floatMirrored {
@@ -3402,11 +3443,17 @@ a {
     margin-inline: 0;
   }
 
-  .plan-amount {
-    font-size: clamp(30px, 8.6vw, 38px);
+  .plan-price {
+    flex-wrap: nowrap;
+    gap: 10px;
   }
 
-  .plan-term {
+  .plan-amount {
+    font-size: clamp(24px, 7.6vw, 40px);
+  }
+
+  .plan-term,
+  .plan-equals {
     font-size: 15px;
   }
 
