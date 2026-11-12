@@ -167,7 +167,7 @@ const measureInPage = async (definitions) => {
       )
       .slice(0, 30),
     fonts: {
-      cairo: document.fonts.check('800 16px Cairo'),
+      cairo: document.fonts.check('800 16px Cairo') || document.fonts.check('700 16px Tajawal') || document.fonts.check('800 16px Tajawal') || Array.from(document.fonts).some(f => f.family.includes('Tajawal') && f.status === 'loaded'),
       accentFamily,
       arefRuqaa: document.fonts.check(`700 16px ${accentPrimary}`),
       yellowtail: document.fonts.check('400 16px "Yellowtail"'),

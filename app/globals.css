@@ -51,10 +51,20 @@ body {
 [dir='rtl'] {
   --dir-sign: -1;
   --hero-fade-angle: 270deg;
+  --font-arabic: var(--font-tajawal), 'Tajawal', 'Cairo', var(--font-sans);
 }
 
 [dir='rtl'] body {
-  font-family: 'Cairo', var(--font-sans);
+  font-family: var(--font-arabic);
+}
+
+[dir='rtl'] h1,
+[dir='rtl'] h2,
+[dir='rtl'] h3,
+[dir='rtl'] h4,
+[dir='rtl'] .section-title {
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
 }
 
 img {
@@ -746,7 +756,7 @@ a {
 }
 
 [dir='rtl'] .hero-title {
-  font-family: 'Cairo', var(--font-sans);
+  font-family: var(--font-arabic);
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: 0;
@@ -1148,27 +1158,37 @@ a {
 
 .brand-head {
   display: grid;
-  grid-template-columns: 660px minmax(0, 1fr);
-  gap: 80px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 48px;
   align-items: start;
   margin-block-end: -2.5px;
   padding-block-start: 2.5px;
 }
 
 .brand-head .section-title {
-  max-width: 700px;
+  max-width: 660px;
   font-size: 34px;
-  font-weight: 600;
-  line-height: 40px;
-  letter-spacing: -0.032em;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
 }
 
 .brand-head p {
   max-width: 480px;
   margin-block-start: 0;
-  font-size: 20px;
-  line-height: 1.525;
+  font-size: 19px;
+  line-height: 1.6;
   color: var(--ink-soft);
+}
+
+[dir='rtl'] .brand-head .section-title {
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+[dir='rtl'] .brand-head p {
+  letter-spacing: 0;
+  line-height: 1.7;
 }
 
 .brand-plate {
