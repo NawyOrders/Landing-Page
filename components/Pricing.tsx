@@ -41,7 +41,7 @@ export default function Pricing({ dict }: { dict: Dictionary }) {
                   <p className="plan-price" key={price.amount + price.term}>
                     <span className="plan-term">{price.term}</span>
                     <span className="plan-equals" aria-hidden="true">=</span>
-                    <span className="plan-amount">{price.amount}</span>
+                    <bdi className="plan-amount">{price.amount}</bdi>
                   </p>
                 ))}
               </div>
