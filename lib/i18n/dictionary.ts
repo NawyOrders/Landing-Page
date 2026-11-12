@@ -54,18 +54,11 @@ export type Dictionary = {
     title1: string;
     title2: string;
     subtitle: string;
-    monthly: string;
-    yearly: string;
-    billingNoteMonthly: string;
-    billingNoteYearly: string;
     plans: Array<{
       key: string;
       name: string;
       desc: string;
-      prices: {
-        yearly: Array<{ amount: string; term: string }>;
-        monthly: Array<{ amount: string; term: string }>;
-      };
+      prices: Array<{ amount: string; term: string }>;
       features: Array<{ text: string; disabled?: boolean }>;
       cta: string;
     }>;

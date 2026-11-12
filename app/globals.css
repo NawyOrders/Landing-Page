@@ -1490,10 +1490,10 @@ a {
 
 .plans-grid {
   display: grid;
-  grid-template-columns: minmax(0, 620px);
+  grid-template-columns: minmax(0, 600px);
   justify-content: center;
   gap: 0;
-  max-width: 620px;
+  max-width: 600px;
   margin-inline: auto;
   align-items: stretch;
 }
@@ -1502,9 +1502,9 @@ a {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 0;
-  padding-block: 71.5px 64px;
-  padding-inline: 63.5px 54px;
+  min-height: 880px;
+  padding-block: 56px 52px;
+  padding-inline: 56px;
   overflow: hidden;
   border-radius: 34px;
   transform-style: preserve-3d;
@@ -1596,9 +1596,9 @@ a {
 .plan-prices {
   display: flex;
   flex-direction: column;
-  gap: 37.3px;
+  gap: 28px;
   min-height: 0;
-  margin-block-start: 44.7px;
+  margin-block-start: 36px;
 }
 
 .plans-grid.is-monthly .plan-prices {
@@ -1650,8 +1650,8 @@ a {
 
 .plan-features {
   display: grid;
-  gap: 30.8px;
-  margin-block-start: 38.8px;
+  gap: 24px;
+  margin-block-start: 32px;
   padding-inline-start: 16.5px;
   list-style: none;
 }
@@ -2283,6 +2283,21 @@ a {
   font-size: 15.5px;
   line-height: 1.7;
   color: #5a463b;
+}
+
+.faq-list details[open] p {
+  animation: faqAnswerIn 0.25s ease both;
+}
+
+@keyframes faqAnswerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .faq-aside {

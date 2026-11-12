@@ -24,6 +24,7 @@ export default function Faq({ dict }: { dict?: Dictionary } = {}) {
             {faqs.map((item, index) => (
               <details
                 key={item.q}
+                name="faq"
                 data-reveal="left"
                 style={{ '--reveal-delay': `${index * 100}ms` } as CSSProperties}
               >
