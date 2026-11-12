@@ -52,17 +52,39 @@ body {
   --dir-sign: -1;
   --hero-fade-angle: 270deg;
   --font-arabic: var(--font-tajawal), 'Tajawal', 'Cairo', var(--font-sans);
+  --font-sans: var(--font-arabic);
 }
 
-[dir='rtl'] body {
-  font-family: var(--font-arabic);
-}
-
+[dir='rtl'],
+[dir='rtl'] body,
+[dir='rtl'] button,
+[dir='rtl'] input,
+[dir='rtl'] textarea,
+[dir='rtl'] select,
+[dir='rtl'] .site-header,
+[dir='rtl'] .main-nav,
+[dir='rtl'] .nav-link,
+[dir='rtl'] .mobile-menu,
+[dir='rtl'] .mobile-link,
+[dir='rtl'] .header-brand,
+[dir='rtl'] .header-brand-name,
+[dir='rtl'] .header-cta,
+[dir='rtl'] .btn,
+[dir='rtl'] .chip,
+[dir='rtl'] .hero-badge,
+[dir='rtl'] .steps-chip,
 [dir='rtl'] h1,
 [dir='rtl'] h2,
 [dir='rtl'] h3,
 [dir='rtl'] h4,
-[dir='rtl'] .section-title {
+[dir='rtl'] h5,
+[dir='rtl'] h6,
+[dir='rtl'] p,
+[dir='rtl'] span,
+[dir='rtl'] a,
+[dir='rtl'] li,
+[dir='rtl'] .section-title,
+[dir='rtl'] .hero-title {
   font-family: var(--font-arabic);
   letter-spacing: 0;
 }
@@ -528,7 +550,7 @@ a {
   font-family: var(--font-sans);
   font-size: 17px;
   font-weight: 500;
-  text-align: left;
+  text-align: start;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.25s ease, padding-inline-start 0.25s ease;
@@ -1057,9 +1079,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 107.5px;
+  width: auto;
+  min-width: 107.5px;
   height: 39.5px;
   padding-block-start: 3px;
+  padding-inline: 18px;
   margin-block-end: 13.3px;
   border-radius: 999px;
   background: linear-gradient(110deg, #ee572c 0%, #ff8c42 50%, #ffb257 100%);
@@ -1140,7 +1164,7 @@ a {
 .steps-bowl {
   position: absolute;
   top: -70.4px;
-  right: 0;
+  inset-inline-end: 0;
   z-index: 0;
   width: 140px;
   height: auto;
@@ -2919,21 +2943,24 @@ a {
   }
 
   .steps-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .steps-visual {
-    width: 100%;
-    margin-block: -10px 0;
-    margin-inline: auto;
-    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .steps-copy {
+    order: -1;
     max-width: 700px;
     margin-inline: auto;
     padding-block-start: 10px;
+  }
+
+  .steps-visual {
+    order: 0;
+    width: 100%;
+    margin-block: 0;
+    margin-inline: auto;
+    max-width: 560px;
   }
 
   .steps-bowl {
@@ -3279,7 +3306,7 @@ a {
 
   .steps-copy {
     padding-block-start: 4px;
-    text-align: left;
+    text-align: start;
   }
 
   .steps-copy .section-title {
@@ -3908,6 +3935,10 @@ a {
 
 [dir='rtl'] .header-brand-name {
   letter-spacing: 0;
+}
+
+[dir='rtl'] .steps-chip > span {
+  transform: none;
 }
 
 [dir='rtl'] .footer-watermark {
