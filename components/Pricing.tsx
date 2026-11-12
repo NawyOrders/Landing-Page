@@ -4,11 +4,10 @@ import { useId, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { CheckIcon } from './Icons';
 import RegisterLink from './RegisterLink';
 import type { Dictionary } from '@/lib/i18n/dictionary';
-import type { Locale } from '@/lib/i18n';
 
 type Billing = 'monthly' | 'yearly';
 
-export default function Pricing({ dict, locale }: { dict: Dictionary; locale?: Locale }) {
+export default function Pricing({ dict }: { dict: Dictionary }) {
   const plans = dict.pricing.plans;
   const [billing, setBilling] = useState<Billing>('yearly');
   const yearly = billing === 'yearly';
@@ -50,7 +49,7 @@ export default function Pricing({ dict, locale }: { dict: Dictionary; locale?: L
       <div className="container">
         <header className="pricing-head" data-reveal>
           <h2 className="section-title">
-            {dict.pricing.title1} <span className="accent">{dict.pricing.title2}</span> {locale === 'ar' ? '' : 'every stage'}
+            {dict.pricing.title1} <span className="accent">{dict.pricing.title2}</span>
           </h2>
           <p className="section-sub">
             {dict.pricing.subtitle}

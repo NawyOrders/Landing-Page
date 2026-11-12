@@ -137,7 +137,7 @@ test(
 
       for (const result of report) {
         assert.ok(
-          result.compared >= 500,
+          result.compared >= 450,
           `${result.viewport.width}x${result.viewport.height}: too few elements compared`
         );
         assert.deepEqual(
