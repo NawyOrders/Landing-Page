@@ -211,7 +211,7 @@ function mirrorDeltas(en, ar) {
       });
       continue;
     }
-    const expectedX = Math.round((kind === 'text' ? e.x + e.width - a.width : e.x) * 100) / 100;
+    const expectedX = Math.round((en.viewportWidth - e.x - a.width) * 100) / 100;
     const xDelta = Math.round((a.x - expectedX) * 100) / 100;
     const yDelta = Math.round((a.y - e.y) * 100) / 100;
     const wDelta = Math.round((a.width - e.width) * 100) / 100;
