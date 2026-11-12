@@ -109,9 +109,9 @@ export const ar: Dictionary = {
         name: 'البداية',
         desc: 'كل ما تحتاجه لإدارة مطعمك أونلاين',
         prices: [
-          { amount: '١٦٬٠٠٠ ج.م', term: '/ ٣ أشهر' },
-          { amount: '٣٠٬٠٠٠ ج.م', term: '/ ٦ أشهر' },
-          { amount: '٦٠٬٠٠٠ ج.م', term: '/ ١٢ شهرًا' },
+          { amount: '١٦٬٠٠٠ ج.م', term: '٣ أشهر' },
+          { amount: '٣٠٬٠٠٠ ج.م', term: '٦ أشهر' },
+          { amount: '٦٠٬٠٠٠ ج.م', term: '١٢ شهرًا' },
         ],
         features: [
           { text: 'إدارة القائمة والمنتجات' },
