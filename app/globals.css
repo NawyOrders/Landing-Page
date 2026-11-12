@@ -548,7 +548,7 @@ a {
 
 .hero-card {
   position: relative;
-  height: 860px;
+  height: 785px;
   margin-inline: 20px;
   overflow: hidden;
   border-radius: 46px;
@@ -575,7 +575,7 @@ a {
   z-index: 2;
   display: flex;
   justify-content: flex-start;
-  padding-block-start: 220px;
+  padding-block-start: 184px;
   padding-inline-start: 97px;
 }
 
@@ -598,7 +598,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   margin-block-start: 2px;
-  font-size: clamp(46px, 4.8vw, 70px);
+  font-size: clamp(42px, 4.45vw, 64px);
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -627,7 +627,7 @@ a {
 .hero-text {
   max-width: 496px;
   margin-block-start: -4px;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 29px;
   color: #2c221b;
 }
@@ -768,41 +768,9 @@ a {
   text-wrap: pretty;
 }
 
-[dir='ltr'] .hero-copy {
-  margin-inline-start: auto;
-  text-align: end;
-}
 
-[dir='ltr'] .hero-title {
-  align-items: flex-end;
-}
 
-[dir='ltr'] .hero-text {
-  margin-inline-start: auto;
-}
 
-[dir='ltr'] .hero-blob {
-  inset-inline-start: auto;
-  inset-inline-end: 0;
-  transform: scaleX(-1);
-}
-
-@media (min-width: 1120px) {
-  [dir='ltr'] .hero-inner {
-    padding-inline-start: 40px;
-    padding-inline-end: 97px;
-  }
-
-  [dir='ltr'] .hero-visual {
-    inset-inline-start: -16px;
-    inset-inline-end: auto;
-  }
-
-  [dir='ltr'] .hero-fries {
-    inset-inline-start: auto;
-    inset-inline-end: -10px;
-  }
-}
 
 @keyframes floatMirrored {
   0%,
@@ -2683,12 +2651,12 @@ a {
   }
 
   .hero-card {
-    height: 900px;
+    height: 812px;
     margin-inline: 20px;
   }
 
   .hero-inner {
-    padding-block-start: 160px;
+    padding-block-start: 132px;
     padding-inline-start: 78px;
   }
 
