@@ -109,9 +109,9 @@ export const en: Dictionary = {
         name: 'Start',
         desc: 'Everything you need to run your restaurant online',
         prices: [
-          { amount: '16,000 EGP', term: '/ 3 months' },
-          { amount: '30,000 EGP', term: '/ 6 months' },
-          { amount: '60,000 EGP', term: '/ 12 months' },
+          { amount: '16,000 EGP', term: '3 months' },
+          { amount: '30,000 EGP', term: '6 months' },
+          { amount: '60,000 EGP', term: '12 months' },
         ],
         features: [
           { text: 'Menu and item management' },

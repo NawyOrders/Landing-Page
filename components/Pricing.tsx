@@ -39,8 +39,9 @@ export default function Pricing({ dict }: { dict: Dictionary }) {
               <div className="plan-prices">
                 {plan.prices.map((price) => (
                   <p className="plan-price" key={price.amount + price.term}>
-                    <span className="plan-amount">{price.amount}</span>
                     <span className="plan-term">{price.term}</span>
+                    <span className="plan-equals" aria-hidden="true">=</span>
+                    <span className="plan-amount">{price.amount}</span>
                   </p>
                 ))}
               </div>
