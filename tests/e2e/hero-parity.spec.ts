@@ -263,8 +263,8 @@ test('measured hero parity passes at every viewport without overflow or runtime 
       assert.deepEqual(viewport.ar.failedRequests, [], `${label}: Arabic failed requests`);
 
       assert.equal(viewport.en.fonts.accentFamily.includes('Yellowtail'), true);
-      assert.equal(viewport.ar.fonts.cairo, true, `${label}: Cairo did not load`);
-      assert.ok(viewport.ar.fonts.loaded.includes('Cairo'), `${label}: Cairo is not active`);
+      assert.equal(viewport.ar.fonts.cairo, true, `${label}: Arabic font did not load`);
+      assert.ok(viewport.ar.fonts.loaded.includes('Cairo') || viewport.ar.fonts.loaded.some(f => f.includes('Tajawal')), `${label}: Arabic font is not active`);
       assert.ok(viewport.ar.fonts.loaded.includes('Aref Ruqaa'), `${label}: Aref Ruqaa is not active`);
       assert.ok(viewport.ar.fonts.accentFamily.includes('Aref Ruqaa'), `${label}: Arabic accent font is not applied`);
 

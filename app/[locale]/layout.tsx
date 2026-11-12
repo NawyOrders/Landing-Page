@@ -10,7 +10,7 @@ import '@fontsource/cairo/600.css';
 import '@fontsource/cairo/700.css';
 import '@fontsource/cairo/800.css';
 import '@fontsource/yellowtail/400.css';
-import { Aref_Ruqaa } from 'next/font/google';
+import { Aref_Ruqaa, Tajawal } from 'next/font/google';
 import '../globals.css';
 import ScrollReveal from '../../components/ScrollReveal';
 import StartRedirect from '../../components/StartRedirect';
@@ -24,6 +24,13 @@ const arefRuqaa = Aref_Ruqaa({
   subsets: ['arabic', 'latin'],
   weight: '700',
   variable: '--font-aref-ruqaa',
+  display: 'swap',
+});
+
+const tajawal = Tajawal({
+  subsets: ['arabic', 'latin'],
+  weight: ['400', '500', '700', '800'],
+  variable: '--font-tajawal',
   display: 'swap',
 });
 
@@ -103,7 +110,7 @@ export default async function LocaleLayout({
   const config = localeConfig[loc];
 
   return (
-    <html lang={loc} dir={config.direction} className={arefRuqaa.variable}>
+    <html lang={loc} dir={config.direction} className={`${arefRuqaa.variable} ${tajawal.variable}`}>
       <body>
         <a className="skip-link" href="#main">
           {loc === 'ar' ? 'تخطَّ إلى المحتوى' : 'Skip to content'}
