@@ -1414,7 +1414,7 @@ a {
   position: absolute;
   top: 4px;
   bottom: 4px;
-  left: 4px;
+  inset-inline-start: 4px;
   width: calc(50% - 4px);
   border-radius: 999px;
   background: var(--red-strong);
@@ -1423,7 +1423,7 @@ a {
 }
 
 .billing-toggle.is-yearly .billing-thumb {
-  transform: translateX(100%);
+  transform: translateX(calc(100% * var(--dir-sign)));
 }
 
 .billing-toggle button {
@@ -1490,19 +1490,19 @@ a {
 
 .plans-grid {
   display: grid;
-  grid-template-columns: 1.0353fr 1fr;
-  gap: 69px;
-  max-width: 1228px;
+  grid-template-columns: minmax(0, 620px);
+  justify-content: center;
+  gap: 0;
+  max-width: 620px;
   margin-inline: auto;
   align-items: stretch;
-  transform: translateX(8px);
 }
 
 .plan-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 882px;
+  min-height: 0;
   padding-block: 71.5px 64px;
   padding-inline: 63.5px 54px;
   overflow: hidden;
@@ -1597,7 +1597,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 37.3px;
-  min-height: 253px;
+  min-height: 0;
   margin-block-start: 44.7px;
 }
 
@@ -3064,7 +3064,7 @@ a {
   }
 
   .plan-prices {
-    min-height: 196px;
+    min-height: 0;
   }
 
   .plan-card {

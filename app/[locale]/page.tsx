@@ -29,7 +29,7 @@ export default async function Home({
         <Steps dict={dict} />
         <Brand dict={dict} />
         <DarkCta dict={dict} />
-        <Pricing dict={dict} locale={loc} />
+        <Pricing dict={dict} />
         <Testimonials dict={dict} />
         <Faq dict={dict} />
         <QrCta dict={dict} />
