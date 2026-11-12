@@ -548,7 +548,7 @@ a {
 
 .hero-card {
   position: relative;
-  height: 785px;
+  height: 860px;
   margin-inline: 20px;
   overflow: hidden;
   border-radius: 46px;
@@ -575,7 +575,7 @@ a {
   z-index: 2;
   display: flex;
   justify-content: flex-start;
-  padding-block-start: 184px;
+  padding-block-start: 220px;
   padding-inline-start: 97px;
 }
 
@@ -598,7 +598,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   margin-block-start: 2px;
-  font-size: clamp(42px, 4.45vw, 64px);
+  font-size: clamp(46px, 4.8vw, 70px);
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -627,7 +627,7 @@ a {
 .hero-text {
   max-width: 496px;
   margin-block-start: -4px;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 29px;
   color: #2c221b;
 }
@@ -1424,10 +1424,10 @@ a {
 
 .plans-grid {
   display: grid;
-  grid-template-columns: minmax(0, 600px);
+  grid-template-columns: repeat(2, minmax(0, 480px));
   justify-content: center;
-  gap: 0;
-  max-width: 600px;
+  gap: 24px;
+  max-width: 1000px;
   margin-inline: auto;
   align-items: stretch;
 }
@@ -1436,7 +1436,7 @@ a {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 780px;
+  min-height: 680px;
   padding-block: 48px 44px;
   padding-inline: 56px;
   overflow: hidden;
@@ -1450,41 +1450,32 @@ a {
 }
 
 .plan-card--light {
-  border: 1px solid #e6e6e8;
+  border: 1px solid rgba(238, 87, 44, 0.22);
   color: #211812;
   background:
     linear-gradient(
-      104deg,
-      rgba(255, 255, 255, 0.75) 0%,
-      rgba(255, 255, 255, 0) 16%,
-      rgba(255, 255, 255, 0.55) 33%,
-      rgba(255, 255, 255, 0) 52%,
-      rgba(255, 255, 255, 0.45) 74%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    linear-gradient(112deg, #f7f7f8 0%, #ffffff 22%, #f2f2f3 46%, #fbfbfc 68%, #efeff0 86%, #f9f9fa 100%);
+      150deg,
+      #fff8f0 0%,
+      #fff3e6 20%,
+      #fde8c8 42%,
+      #fbd5a0 64%,
+      #f9c07a 82%,
+      #f7a84a 100%
+    );
   box-shadow:
-    0 42px 70px -42px rgba(30, 20, 10, 0.4),
-    inset 0 1px 0 #fff;
+    0 42px 70px -42px rgba(220, 90, 20, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .plan-card--light::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
-    97deg,
-    #ffffff 0px,
-    #fafafa 40px,
-    #f5f5f6 62px,
-    #dcdcde 88px,
-    #d4d4d6 100px,
-    #dadadc 112px,
-    #e6e6e8 128px,
-    #efeff0 150px,
-    #f4f4f5 180px,
-    #f8f8f9 212px,
-    #ffffff 235px
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 220, 160, 0.1) 100%
   );
   background-position: 35px 0;
   opacity: 0.9;
@@ -1509,7 +1500,7 @@ a {
   line-height: 1.2;
   letter-spacing: 0;
   text-transform: uppercase;
-  color: #131313;
+  color: #2a1200;
 }
 
 .plan-card--dark h3 {
@@ -1520,7 +1511,7 @@ a {
   margin-block-start: 10px;
   font-size: 18px;
   line-height: 1.5;
-  color: #2f2f2f;
+  color: #3d2010;
 }
 
 .plan-card--dark .plan-desc {
@@ -1602,7 +1593,7 @@ a {
   align-items: flex-start;
   font-size: 20px;
   line-height: 1.36;
-  color: #211812;
+  color: #2d1a0a;
 }
 
 .plan-card--dark .plan-features li {
@@ -2679,12 +2670,12 @@ a {
   }
 
   .hero-card {
-    height: 812px;
+    height: 900px;
     margin-inline: 20px;
   }
 
   .hero-inner {
-    padding-block-start: 132px;
+    padding-block-start: 160px;
     padding-inline-start: 78px;
   }
 
@@ -2823,7 +2814,7 @@ a {
   }
 
   .plans-grid {
-    gap: 32px;
+    gap: 20px;
   }
 
   .plan-card {
@@ -3412,9 +3403,8 @@ a {
   }
 
   .plans-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    transform: none;
+    grid-template-columns: minmax(0, 520px);
+    gap: 20px;
   }
 
   .plan-card {
