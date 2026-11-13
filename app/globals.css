@@ -1218,7 +1218,7 @@ a {
 .brand-plate {
   position: absolute;
   top: -15.4px;
-  right: 0;
+  inset-inline-end: 0;
   z-index: 2;
   width: 160px;
   height: auto;
@@ -1227,12 +1227,11 @@ a {
 
 .brand-grid {
   position: relative;
-  left: 50%;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   width: min(1344px, calc(100vw - 96px));
-  transform: translateX(-50%);
+  margin-inline: calc((100% - min(1344px, calc(100vw - 96px))) / 2);
 }
 
 .brand-card {
@@ -2943,24 +2942,21 @@ a {
   }
 
   .steps-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .steps-copy {
-    order: -1;
-    max-width: 700px;
-    margin-inline: auto;
-    padding-block-start: 10px;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .steps-visual {
-    order: 0;
     width: 100%;
-    margin-block: 0;
+    margin-block: -10px 0;
     margin-inline: auto;
     max-width: 560px;
+  }
+
+  .steps-copy {
+    max-width: 700px;
+    margin-inline: auto;
+    padding-block-start: 10px;
   }
 
   .steps-bowl {
@@ -2989,7 +2985,7 @@ a {
 
   .brand-plate {
     top: 10px;
-    right: 14px;
+    inset-inline-end: 14px;
     width: 140px;
   }
 
@@ -3363,11 +3359,10 @@ a {
   }
 
   .brand-grid {
-    left: auto;
     grid-template-columns: 1fr;
     gap: 34px;
     width: 100%;
-    transform: none;
+    margin-inline: auto;
   }
 
   .brand-card {
