@@ -24,16 +24,7 @@ const stepsData = [
 function StepIcon() {
   return (
     <span className="step-icon" aria-hidden="true">
-      <svg viewBox="0 0 44 48" focusable="false">
-        <path d="M7 4v40" stroke="#e43820" strokeWidth="2.8" strokeLinecap="round" />
-        <path
-          d="M16.5 11.5 40 24 16.5 36.5Z"
-          fill="#fcdfd8"
-          stroke="#e43820"
-          strokeWidth="2.6"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <img src="/icons/arrowicon.svg" width="48" height="48" alt="" />
     </span>
   );
 }
@@ -63,10 +54,20 @@ export default function Steps({ dict }: { dict?: Dictionary } = {}) {
       <div className="container steps-grid">
         <div className="steps-visual" data-reveal="left" style={{ '--reveal-delay': '50ms' } as CSSProperties}>
           <img
-            src="/images/steps-visual.jpg"
-            width="660"
-            height="780"
-            alt="Nawy Orders phone app next to a splash of fresh orange juice"
+            className="steps-phone"
+            src="/images/phoneimage.jpg"
+            width="2476"
+            height="2722"
+            alt={dict?.steps.phoneAlt || 'Nawy Orders restaurant ordering app displayed on a smartphone'}
+            loading="lazy"
+          />
+          <img
+            className="steps-lemonada"
+            src="/images/lemonada.jpg"
+            width="810"
+            height="1164"
+            alt=""
+            aria-hidden="true"
             loading="lazy"
           />
         </div>

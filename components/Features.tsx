@@ -10,24 +10,24 @@ const iconProps = {
 };
 
 const featureIcons = [
-  (
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps} key="f1">
+  () => (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps}>
       <path d="M12 3.6l1.6 1.7 2.3-.5.7 2.3 2.3.7-.5 2.3L20.4 12l-1.7 1.6.5 2.3-2.3.7-.7 2.3-2.3-.5L12 20.4l-1.6-1.7-2.3.5-.7-2.3-2.3-.7.5-2.3L3.6 12l1.7-1.6-.5-2.3 2.3-.7.7-2.3 2.3.5Z" />
       <path d="M9 15l6-6" />
       <circle cx="9.4" cy="9.3" r=".9" fill="currentColor" stroke="none" />
       <circle cx="14.6" cy="14.7" r=".9" fill="currentColor" stroke="none" />
     </svg>
   ),
-  (
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps} key="f2">
+  () => (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps}>
       <path d="M5.4 8.7h13.2l-1 10a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8Z" />
       <path d="M9 8.6V6.8a3 3 0 0 1 6 0v1.8" />
       <circle cx="9.4" cy="12.6" r=".8" fill="currentColor" stroke="none" />
       <circle cx="14.6" cy="12.6" r=".8" fill="currentColor" stroke="none" />
     </svg>
   ),
-  (
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps} key="f3">
+  () => (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps}>
       <path d="M4.2 7.6h15.6v3.1a2.4 2.4 0 0 0 0 4.6v3.1H4.2v-3.1a2.4 2.4 0 0 0 0-4.6V7.6Z" />
       <path d="M13.6 9.1v6.8" strokeDasharray="1.7 1.9" />
       <path d="M8 14.6l3.2-3.4" />
@@ -35,8 +35,8 @@ const featureIcons = [
       <circle cx="11" cy="13.9" r=".8" fill="currentColor" stroke="none" />
     </svg>
   ),
-  (
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps} key="f4">
+  () => (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps}>
       <rect x="3.8" y="4.8" width="16.4" height="14.4" rx="2.2" />
       <path d="M3.8 8.9h16.4" />
       <circle cx="6.7" cy="6.9" r=".55" fill="currentColor" stroke="none" />
@@ -45,16 +45,16 @@ const featureIcons = [
       <path d="M15.6 11.6h1.2v1.2" />
     </svg>
   ),
-  (
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps} key="f5">
+  () => (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps}>
       <path d="M4.2 16.7a8.4 8.4 0 1 1 15.6 0" />
       <path d="M12 14.4l3.2-3.4" />
       <circle cx="12" cy="15" r="1.5" fill="currentColor" stroke="none" />
       <path d="M6.2 13.2h2.2M15.6 13.2h2.2M12 8.4v1.8" />
     </svg>
   ),
-  (
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps} key="f6">
+  () => (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...iconProps}>
       <circle cx="9.4" cy="8.7" r="2.9" />
       <path d="M4.5 18.2c.6-3.1 2.5-4.8 4.9-4.8 1.2 0 2.2.4 3 1.2" />
       <path d="M16.1 11.8v6.5M14 15.1h4.2" />
@@ -99,20 +99,26 @@ export default function Features({ dict }: { dict: Dictionary }) {
         </header>
 
         <ul className="features-grid">
-          {features.map((feature, index) => (
-            <li
-              key={feature.title}
-              className="feature-card"
-              data-reveal="flip"
-              style={{ '--reveal-delay': `${(index % 3) * 120 + Math.floor(index/3)*180}ms` } as CSSProperties}
-            >
-              <div className="feature-card-head">
-                <span className="feature-icon">{featureIcons[index] || featureIcons[0]}</span>
-                <h3>{feature.title}</h3>
-              </div>
-              <p>{feature.text}</p>
-            </li>
-          ))}
+          {features.map((feature, index) => {
+            const FeatureIcon = featureIcons[index] || featureIcons[0];
+
+            return (
+              <li
+                key={feature.title}
+                className="feature-card"
+                data-reveal="flip"
+                style={{ '--reveal-delay': `${(index % 3) * 120 + Math.floor(index/3)*180}ms` } as CSSProperties}
+              >
+                <div className="feature-card-head">
+                  <span className="feature-icon">
+                    <FeatureIcon />
+                  </span>
+                  <h3>{feature.title}</h3>
+                </div>
+                <p>{feature.text}</p>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

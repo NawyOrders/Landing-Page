@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import sharp from 'sharp';
 
 const root = process.cwd();
-const source = readFileSync(join(root, 'app', 'icon.svg'));
+const source = readFileSync(join(root, 'public', 'icons', 'icon.svg'));
 const outDir = join(root, 'public', 'icons');
 const background = '#e43820';
 

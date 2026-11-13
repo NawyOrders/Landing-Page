@@ -67,6 +67,7 @@ export const en: Dictionary = {
     title1: 'Nawy Order solves the problem',
     title2: 'in 3 simple steps',
     intro: 'From subscribing until receiving your ready app… all in a short time.',
+    phoneAlt: 'Nawy Orders restaurant ordering app displayed on a smartphone',
     items: [
       {
         title: 'Subscribe',

@@ -72,7 +72,7 @@ export default function Testimonials({ dict }: { dict?: Dictionary } = {}) {
           {items.map((item, index) => (
             <article
               key={item.name}
-              className={`testimonial-card${index === 0 ? ' testimonial-card--float' : ''}`}
+              className="testimonial-card"
               data-reveal="flip"
               style={{ '--reveal-delay': `${index * 150}ms` } as CSSProperties}
             >
@@ -87,11 +87,7 @@ export default function Testimonials({ dict }: { dict?: Dictionary } = {}) {
                 />
                 <h3>{item.name}</h3>
                 {item.place ? (
-                  <p
-                    className={`testimonial-place${index === 0 ? ' testi-place-float' : ''}`}
-                  >
-                    {item.place}
-                  </p>
+                  <p className="testimonial-place">{item.place}</p>
                 ) : null}
                 <blockquote>{item.quote}</blockquote>
               </div>
