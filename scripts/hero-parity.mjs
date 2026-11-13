@@ -20,6 +20,7 @@ const ELEMENTS = [
   { key: 'card', selector: '.hero-card', kind: 'shape' },
   { key: 'badge', selector: '.hero-badge', kind: 'text' },
   { key: 'title1', selector: '.hero-title > span:nth-of-type(1)', kind: 'text' },
+  { key: 'titleArt', selector: '.hero-spark--title', kind: 'image', anchor: 'title1', side: 'end' },
   { key: 'title2', selector: '.hero-title > span:nth-of-type(2)', kind: 'text' },
   { key: 'accent', selector: '.hero-title em', kind: 'text' },
   { key: 'accentLast', selector: '.hero-title-em', kind: 'text' },
@@ -27,10 +28,10 @@ const ELEMENTS = [
   { key: 'ctaWrap', selector: '.hero-cta-wrap', kind: 'text' },
   { key: 'button', selector: '.hero-cta', kind: 'text' },
   { key: 'arrow', selector: '.hero-cta svg', kind: 'shape', anchor: 'button', side: 'end' },
-  { key: 'imagePanel', selector: '.hero-visual', kind: 'shape' },
-  { key: 'mockup', selector: '.hero-visual img', kind: 'image' },
+  { key: 'topStart', selector: '.hero-decoration--top-start', kind: 'image' },
+  { key: 'topEnd', selector: '.hero-decoration--top-end', kind: 'image' },
+  { key: 'devices', selector: '.hero-devices', kind: 'image' },
   { key: 'fries', selector: '.hero-fries', kind: 'image' },
-  { key: 'splash', selector: '.hero-blob', kind: 'shape' },
   { key: 'swooshTop', selector: '.hero-spark--cta', kind: 'image', anchor: 'ctaWrap', side: 'end' },
   { key: 'swooshBottom', selector: '.hero-spark--cta-left', kind: 'image', anchor: 'ctaWrap', side: 'start' },
 ];
@@ -143,12 +144,79 @@ const measureInPage = async (definitions) => {
 
   const accentFamily = getComputedStyle(document.querySelector('.hero-title em')).fontFamily;
   const accentPrimary = accentFamily.split(',')[0].trim();
+  const strip = document.querySelector('.feature-strip').getBoundingClientRect();
+  const stripStyle = getComputedStyle(document.querySelector('.feature-strip'));
+  const stripCopyStyle = getComputedStyle(document.querySelector('.strip-copy'));
+  const stripTitle = document.querySelector('.strip-copy strong');
+  const stripSubtitle = document.querySelector('.strip-copy small');
+  const stripItems = Array.from(document.querySelectorAll('.feature-strip li')).map((item) => {
+    const icon = item.querySelector('.strip-icon').getBoundingClientRect();
+    const copy = item.querySelector('.strip-copy').getBoundingClientRect();
+    const rect = item.getBoundingClientRect();
+    return {
+      left: Math.min(icon.left, copy.left),
+      right: Math.max(icon.right, copy.right),
+      top: rect.top,
+    };
+  });
+  const stripLeft = Math.min(...stripItems.map((item) => item.left));
+  const stripRight = Math.max(...stripItems.map((item) => item.right));
+  const stripLeftGap = Math.round((stripLeft - strip.left) * 100) / 100;
+  const stripRightGap = Math.round((strip.right - stripRight) * 100) / 100;
+  const stripRows = new Set(stripItems.map((item) => Math.round(item.top))).size;
+  const heroCard = document.querySelector('.hero-card').getBoundingClientRect();
+  const heroCopy = document.querySelector('.hero-copy').getBoundingClientRect();
+  const heroText = document.querySelector('.hero-text').getBoundingClientRect();
+  const heroCta = document.querySelector('.hero-cta-wrap').getBoundingClientRect();
+  const heroDevices = document.querySelector('.hero-devices').getBoundingClientRect();
+  const stepsChip = document.querySelector('.steps-chip').getBoundingClientRect();
+  const stepsChipText = document.querySelector('.steps-chip > span').getBoundingClientRect();
+  const stepsDirection = getComputedStyle(document.querySelector('.steps-section')).direction;
+  const stepsArrow = document.querySelector('.step-icon img');
+  const stepsPhone = document.querySelector('.steps-phone');
+  const stepsLemonada = document.querySelector('.steps-lemonada');
+  const stepsBowl = document.querySelector('.steps-bowl');
+  const isFlipped = (element) => getComputedStyle(element).transform.startsWith('matrix(-1');
 
   return {
     viewportWidth: window.innerWidth,
     viewportHeight: window.innerHeight,
     scrollWidth: document.documentElement.scrollWidth,
     direction: getComputedStyle(document.documentElement).direction,
+    featureStripSideGaps: {
+      left: stripLeftGap,
+      right: stripRightGap,
+      delta: Math.round(Math.abs(stripLeftGap - stripRightGap) * 100) / 100,
+    },
+    featureStripRows: stripRows,
+    featureStripRowGap: Number.parseFloat(stripStyle.rowGap),
+    featureStripCopyGap: Number.parseFloat(stripCopyStyle.rowGap),
+    featureStripTitleFontSize: Number.parseFloat(getComputedStyle(stripTitle).fontSize),
+    featureStripSubtitleFontSize: Number.parseFloat(getComputedStyle(stripSubtitle).fontSize),
+    heroTextButtonGap: Math.round((heroCta.top - heroText.bottom) * 100) / 100,
+    heroDeviceFlow: {
+      gap: Math.round((heroDevices.top - heroCopy.bottom) * 100) / 100,
+      widthDelta: Math.round((heroCard.width - heroDevices.width) * 100) / 100,
+    },
+    stepsChip: {
+      widthDelta: Math.round((stepsChip.width - stepsChipText.width) * 100) / 100,
+      inlineStartGap: Math.round(
+        (stepsDirection === 'rtl'
+          ? stepsChip.right - stepsChipText.right
+          : stepsChipText.left - stepsChip.left) * 100
+      ) / 100,
+    },
+    stepsArtwork: {
+      arrowSource: stepsArrow.getAttribute('src'),
+      arrowFlipped: isFlipped(stepsArrow),
+      phoneSource: stepsPhone.getAttribute('src'),
+      phoneFlipped: isFlipped(stepsPhone),
+      phoneVisible: stepsPhone.getClientRects().length > 0,
+      lemonadaSource: stepsLemonada.getAttribute('src'),
+      lemonadaFlipped: isFlipped(stepsLemonada),
+      lemonadaVisible: stepsLemonada.getClientRects().length > 0,
+      bowlFlipped: isFlipped(stepsBowl),
+    },
     offenders: Array.from(document.querySelectorAll('body *'))
       .map((element) => {
         const rect = element.getBoundingClientRect();
@@ -182,6 +250,15 @@ const measureInPage = async (definitions) => {
 
 function mirrorDeltas(en, ar) {
   const rows = [];
+  const accentFragmentAtInlineEnd = (report) => {
+    const accent = report.elements.accent;
+    const fragment = report.elements.accentLast;
+    if (!accent || !fragment) return false;
+    return report.direction === 'rtl'
+      ? Math.abs(fragment.x - accent.x) <= 2
+      : Math.abs(accent.right - fragment.right) <= 2;
+  };
+
   for (const { key, kind } of ELEMENTS) {
     const e = en.elements[key];
     const a = ar.elements[key];
@@ -252,8 +329,12 @@ function mirrorDeltas(en, ar) {
       fontMismatch,
       lines: `${e.lines}/${a.lines}`,
       pass:
-        (anchorDelta === null ? Math.abs(xDelta) <= 2 : Math.abs(anchorDelta) <= 2) &&
-        Math.abs(yDelta) <= 2 &&
+        (key === 'accentLast'
+          ? accentFragmentAtInlineEnd(en) && accentFragmentAtInlineEnd(ar)
+          : anchorDelta === null
+            ? Math.abs(xDelta) <= 2
+            : Math.abs(anchorDelta) <= 2) &&
+        (kind === 'text' || definition?.anchor || Math.abs(yDelta) <= 2) &&
         (kind !== 'shape' && kind !== 'image'
           ? true
           : Math.abs(wDelta) <= 2 && Math.abs(hDelta) <= 2) &&
@@ -261,6 +342,10 @@ function mirrorDeltas(en, ar) {
     });
   }
   return rows;
+}
+
+function isDevelopmentHmrHandshakeError(text) {
+  return /^WebSocket connection to 'ws:\/\/[^']+\/_next\/hmr\?id=[^']+' failed: Error during WebSocket handshake: net::ERR_INVALID_HTTP_RESPONSE$/.test(text);
 }
 
 function gapDeltas(en, ar) {
@@ -289,7 +374,7 @@ function markdownReport(results, mode) {
     `# Hero parity ${mode}`,
     '',
     'Generated by `scripts/hero-parity.mjs` against the production build.',
-    'Alignment expectation for x: text elements share a common end edge; shapes/images share the same physical position.',
+    'Localized copy and hero artwork reverse positions across LTR/RTL; anchored accents are measured relative to their copy.',
     '',
   ];
   for (const result of results) {
@@ -376,7 +461,9 @@ async function main() {
       consoleErrors.push(event.exceptionDetails?.exception?.description || 'Runtime exception');
     });
     on('Log.entryAdded', (event) => {
-      if (event.entry.level === 'error') consoleErrors.push(event.entry.text);
+      if (event.entry.level === 'error' && !isDevelopmentHmrHandshakeError(event.entry.text)) {
+        consoleErrors.push(event.entry.text);
+      }
     });
     on('Network.loadingFailed', (event) => {
       if (!event.canceled) failedRequests.push(`${event.type}: ${event.errorText}`);

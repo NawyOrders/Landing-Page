@@ -10,7 +10,7 @@ import '@fontsource/cairo/600.css';
 import '@fontsource/cairo/700.css';
 import '@fontsource/cairo/800.css';
 import '@fontsource/yellowtail/400.css';
-import { Aref_Ruqaa, Tajawal } from 'next/font/google';
+import { Noto_Kufi_Arabic } from 'next/font/google';
 import '../globals.css';
 import ScrollReveal from '../../components/ScrollReveal';
 import StartRedirect from '../../components/StartRedirect';
@@ -20,17 +20,10 @@ import { locales, defaultLocale, type Locale } from '@/lib/i18n';
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 
-const arefRuqaa = Aref_Ruqaa({
+const notoKufiArabic = Noto_Kufi_Arabic({
   subsets: ['arabic', 'latin'],
-  weight: '700',
-  variable: '--font-aref-ruqaa',
-  display: 'swap',
-});
-
-const tajawal = Tajawal({
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '500', '700', '800'],
-  variable: '--font-tajawal',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-noto-kufi-arabic',
   display: 'swap',
 });
 
@@ -52,12 +45,12 @@ const baseMetadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml' },
       { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
       { url: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [{ url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
-    shortcut: '/icon.svg',
+    shortcut: '/icons/icon.svg',
   },
 };
 
@@ -110,7 +103,11 @@ export default async function LocaleLayout({
   const config = localeConfig[loc];
 
   return (
-    <html lang={loc} dir={config.direction} className={`${arefRuqaa.variable} ${tajawal.variable}`}>
+    <html
+      lang={loc}
+      dir={config.direction}
+      className={loc === 'ar' ? notoKufiArabic.variable : undefined}
+    >
       <body>
         <a className="skip-link" href="#main">
           {loc === 'ar' ? 'تخطَّ إلى المحتوى' : 'Skip to content'}

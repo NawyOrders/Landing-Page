@@ -46,6 +46,26 @@ type LocaleReport = {
   viewportHeight: number;
   scrollWidth: number;
   direction: string;
+  featureStripSideGaps: { left: number; right: number; delta: number };
+  featureStripRows: number;
+  featureStripRowGap: number;
+  featureStripCopyGap: number;
+  featureStripTitleFontSize: number;
+  featureStripSubtitleFontSize: number;
+  heroTextButtonGap: number;
+  stepsChip: { widthDelta: number; inlineStartGap: number };
+  stepsArtwork: {
+    arrowSource: string;
+    arrowFlipped: boolean;
+    phoneSource: string;
+    phoneFlipped: boolean;
+    phoneVisible: boolean;
+    lemonadaSource: string;
+    lemonadaFlipped: boolean;
+    lemonadaVisible: boolean;
+    bowlFlipped: boolean;
+  };
+  heroDeviceFlow: { gap: number; widthDelta: number };
   fonts: FontReport;
   elements: Record<string, Box>;
   consoleErrors: string[];
@@ -154,16 +174,29 @@ test('hero CSS uses logical direction properties and mirrors decorative transfor
   assert.deepEqual(violations, []);
   const css = readSource('app/globals.css');
   assert.match(css, /:root\s*{[\s\S]*?--dir-sign:\s*1/);
-  assert.match(css, /\[dir='rtl'\]\s*{[\s\S]*?--dir-sign:\s*-1/);
-  assert.match(css, /\.hero-visual\s*{[\s\S]*?var\(--hero-fade-angle\)/);
-  assert.match(css, /\[dir='rtl'\]\s+\.hero-fries\s*{[\s\S]*?scaleX\(-1\)/);
+  assert.match(css, /\[dir=["']rtl["']\]\s*{[\s\S]*?--dir-sign:\s*-1/);
+  assert.match(css, /\.hero-card\s*{[\s\S]*?url\(["']\/images\/hero\/mainbg\.jpg["']\)/);
+  assert.match(css, /\.feature-strip\s*{[\s\S]*?url\(["']\/images\/underherobg\.jpg["']\)/);
+  assert.match(css, /\.hero-copy\s*{[\s\S]*?inset-inline-start:\s*7%/);
+  assert.match(css, /\.hero-decoration--top-start\s*{[\s\S]*?inset-inline-start:\s*0/);
+  assert.match(css, /\.hero-decoration--top-end\s*{[\s\S]*?inset-inline-end:\s*0/);
+  assert.match(css, /\.hero-devices\s*{[\s\S]*?inset-inline-end:\s*0/);
+  assert.match(css, /\.hero-fries\s*{[\s\S]*?inset-inline-start:\s*0/);
   assert.match(
     css,
-    /\[dir='rtl'\]\s+\.reveal-ready\s+\.hero-badge\[data-revealed\]\s*{[\s\S]*?flipHorizontalMirrored/
+    /\[dir=["']rtl["']\]\s+\.hero-card > \.hero-decoration,[\s\S]*?transform:\s*scaleX\(-1\)/
   );
-  for (const rule of heroCssRules().filter((item) => item.selector.includes('.hero-visual'))) {
-    assert.doesNotMatch(rule.body, /scaleX|rotateY|matrix\(-1/, `mockup must not mirror: ${rule.selector}`);
-  }
+  assert.match(
+    css,
+    /\[dir=["']rtl["']\]\s+\.hero-inner > \.hero-devices,[\s\S]*?transform:\s*scaleX\(-1\)/
+  );
+  assert.match(css, /\.hero-card\s*{[\s\S]*?border-radius:\s*clamp\(/);
+  assert.match(css, /\.feature-strip\s*{[\s\S]*?border-radius:\s*36px/);
+  assert.match(css, /\.feature-strip-wrap\s*{[\s\S]*?width:\s*min\(1344px, calc\(100% - 40px\)\)/);
+  assert.match(
+    css,
+    /\[dir=["']rtl["']\]\s+\.reveal-ready\s+\.hero-badge\[data-revealed\]\s*{[\s\S]*?flipHorizontalMirrored/
+  );
 });
 
 test('hero component has no physical direction utilities or untyped casts', () => {
@@ -175,6 +208,17 @@ test('hero component has no physical direction utilities or untyped casts', () =
   assert.match(hero, /<h1 className="hero-title"/);
   assert.match(hero, /href="#features"/);
   assert.match(hero, /<ArrowIcon className="hero-cta-arrow"/);
+  assert.match(hero, /className="hero-devices"[\s\S]*?alt={dict\.hero\.imageAlt}/);
+  assert.match(hero, /className="hero-copy"[\s\S]*?className="hero-devices"/);
+  assert.match(hero, /className="hero-spark hero-spark--title"[\s\S]*?alt=""/);
+  for (const asset of ['topleften', 'toprighten', 'platewithdevices', 'fries']) {
+    assert.ok(hero.includes(`/images/hero/${asset}-cutout.webp`), `Missing ${asset} image`);
+  }
+  assert.doesNotMatch(readSource('app/globals.css'), /\.hero-(?:decoration|devices|fries)[^{]*{[^}]*mix-blend-mode/);
+  const featureStrip = readSource('components/FeatureStrip.tsx');
+  for (const icon of ['easysetup', 'people', 'security-safe', 'bx_support']) {
+    assert.ok(featureStrip.includes(`/icons/hero/${icon}.svg`), `Missing ${icon} icon`);
+  }
 });
 
 test('English and Arabic hero dictionaries share the same shape', async () => {
@@ -206,7 +250,7 @@ test('live hero keeps roles, order, copy and decorative semantics in both langua
     [en, enHero, 'en'],
     [ar, heroCopy('ar'), 'ar'],
   ] as const) {
-    const order = ['hero-badge', 'hero-title', 'hero-text', 'hero-cta', 'hero-visual'].map((name) =>
+    const order = ['hero-badge', 'hero-title', 'hero-text', 'hero-cta'].map((name) =>
       html.indexOf(name)
     );
     assert.ok(order.every((index) => index >= 0), `${locale}: hero landmarks are missing`);
@@ -220,9 +264,10 @@ test('live hero keeps roles, order, copy and decorative semantics in both langua
     assert.ok(textContent(html).includes(`${copy.title3} ${copy.title3Em}`));
     assert.ok(textContent(html).includes(copy.cta));
     assert.ok(html.includes(copy.imageAlt));
+    assert.match(html, new RegExp(`class="hero-devices"[^>]*alt="${copy.imageAlt}"`));
+    assert.match(html, /class="hero-decoration hero-decoration--top-start"[^>]*alt=""/);
     assert.match(html, /class="hero-cta-arrow"/);
     assert.match(html, /class="hero-spark hero-spark--cta"[^>]*alt=""/);
-    assert.match(html, /class="hero-fries"[^>]*alt=""/);
   }
 
   assert.match(ar, /class="hero-nowrap"/);
@@ -257,6 +302,55 @@ test('measured hero parity passes at every viewport without overflow or runtime 
       assert.deepEqual(viewport.gaps.filter((gap) => !gap.pass), [], `${label}: gap mismatches`);
       assert.ok(viewport.en.scrollWidth <= viewport.viewport.width, `${label}: English overflow`);
       assert.ok(viewport.ar.scrollWidth <= viewport.viewport.width, `${label}: Arabic overflow`);
+      assert.ok(viewport.en.featureStripSideGaps.delta <= 1, `${label}: English feature strip side gaps differ`);
+      assert.ok(viewport.ar.featureStripSideGaps.delta <= 1, `${label}: Arabic feature strip side gaps differ`);
+      assert.ok(viewport.en.stepsChip.widthDelta <= 22, `${label}: English steps badge is wider than its text`);
+      assert.ok(viewport.ar.stepsChip.widthDelta <= 22, `${label}: Arabic steps badge is wider than its text`);
+      assert.ok(Math.abs(viewport.en.stepsChip.inlineStartGap - 10) <= 2, `${label}: English steps badge text is not aligned to the start`);
+      assert.ok(Math.abs(viewport.ar.stepsChip.inlineStartGap - 10) <= 2, `${label}: Arabic steps badge text is not aligned to the start`);
+      assert.equal(viewport.en.stepsArtwork.arrowSource, '/icons/arrowicon.svg', `${label}: wrong step arrow asset`);
+      const expectedStepsArtworkVisible = viewport.viewport.width >= 1024;
+      assert.deepEqual(viewport.en.stepsArtwork, {
+        arrowSource: '/icons/arrowicon.svg',
+        arrowFlipped: false,
+        phoneSource: '/images/phoneimage.jpg',
+        phoneFlipped: false,
+        phoneVisible: expectedStepsArtworkVisible,
+        lemonadaSource: '/images/lemonada.jpg',
+        lemonadaFlipped: false,
+        lemonadaVisible: expectedStepsArtworkVisible,
+        bowlFlipped: false,
+      }, `${label}: English steps artwork should not be mirrored`);
+      assert.deepEqual(viewport.ar.stepsArtwork, {
+        arrowSource: '/icons/arrowicon.svg',
+        arrowFlipped: true,
+        phoneSource: '/images/phoneimage.jpg',
+        phoneFlipped: true,
+        phoneVisible: expectedStepsArtworkVisible,
+        lemonadaSource: '/images/lemonada.jpg',
+        lemonadaFlipped: true,
+        lemonadaVisible: expectedStepsArtworkVisible,
+        bowlFlipped: true,
+      }, `${label}: Arabic steps artwork should be mirrored`);
+      const expectedFeatureRows = viewport.viewport.width < 768 ? 4 : viewport.viewport.width < 1024 ? 2 : 1;
+      assert.equal(viewport.en.featureStripRows, expectedFeatureRows, `${label}: English feature strip row count`);
+      assert.equal(viewport.ar.featureStripRows, expectedFeatureRows, `${label}: Arabic feature strip row count`);
+      if (viewport.viewport.width < 768) {
+        assert.ok(viewport.en.featureStripRowGap >= 40, `${label}: English feature rows are too close`);
+        assert.ok(viewport.ar.featureStripRowGap >= 40, `${label}: Arabic feature rows are too close`);
+        assert.ok(viewport.en.featureStripCopyGap >= 12, `${label}: English feature labels are too close`);
+        assert.ok(viewport.ar.featureStripCopyGap >= 12, `${label}: Arabic feature labels are too close`);
+        assert.ok(viewport.en.featureStripTitleFontSize >= 17, `${label}: English feature title is too small`);
+        assert.ok(viewport.ar.featureStripTitleFontSize >= 17, `${label}: Arabic feature title is too small`);
+        assert.ok(viewport.en.featureStripSubtitleFontSize >= 13, `${label}: English feature subtitle is too small`);
+        assert.ok(viewport.ar.featureStripSubtitleFontSize >= 13, `${label}: Arabic feature subtitle is too small`);
+        assert.ok(viewport.en.heroTextButtonGap <= 16, `${label}: English text-to-button gap is too large`);
+        assert.ok(viewport.ar.heroTextButtonGap <= 16, `${label}: Arabic text-to-button gap is too large`);
+        assert.ok(viewport.en.heroDeviceFlow.gap >= 12, `${label}: English plate overlaps the copy`);
+        assert.ok(Math.abs(viewport.en.heroDeviceFlow.widthDelta) <= 1, `${label}: English plate is not full-width`);
+        assert.ok(viewport.ar.heroDeviceFlow.gap >= 12, `${label}: Arabic plate overlaps the copy`);
+        assert.ok(Math.abs(viewport.ar.heroDeviceFlow.widthDelta) <= 1, `${label}: Arabic plate is not full-width`);
+      }
       assert.deepEqual(viewport.en.consoleErrors, [], `${label}: English console errors`);
       assert.deepEqual(viewport.ar.consoleErrors, [], `${label}: Arabic console errors`);
       assert.deepEqual(viewport.en.failedRequests, [], `${label}: English failed requests`);
@@ -268,16 +362,18 @@ test('measured hero parity passes at every viewport without overflow or runtime 
       assert.ok(viewport.ar.fonts.loaded.includes('Aref Ruqaa'), `${label}: Aref Ruqaa is not active`);
       assert.ok(viewport.ar.fonts.accentFamily.includes('Aref Ruqaa'), `${label}: Arabic accent font is not applied`);
 
-      assert.equal(
-        viewport.ar.elements.accent.lines,
-        viewport.en.elements.accent.lines,
-        `${label}: accent line count differs`
-      );
-      assert.equal(
-        viewport.ar.elements.paragraph.height,
-        viewport.en.elements.paragraph.height,
-        `${label}: paragraph block height differs`
-      );
+      if (viewport.viewport.width >= 768) {
+        assert.equal(
+          viewport.ar.elements.accent.lines,
+          viewport.en.elements.accent.lines,
+          `${label}: accent line count differs`
+        );
+        assert.equal(
+          viewport.ar.elements.paragraph.height,
+          viewport.en.elements.paragraph.height,
+          `${label}: paragraph block height differs`
+        );
+      }
     }
   } finally {
     for (const path of [markdownPath, jsonPath]) {

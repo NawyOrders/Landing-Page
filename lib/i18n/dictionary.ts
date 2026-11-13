@@ -35,6 +35,7 @@ export type Dictionary = {
     title1: string;
     title2: string;
     intro: string;
+    phoneAlt: string;
     items: Array<{ title: string; text: string }>;
   };
   brand: {

@@ -29,7 +29,7 @@ export default function Pricing({ dict }: { dict: Dictionary }) {
           {plans.map((plan, index) => (
             <article
               key={plan.key}
-              className="plan-card plan-card--light"
+              className="plan-card plan-card--dark"
               data-reveal="flipup"
               style={{ '--reveal-delay': `${index * 160}ms` } as CSSProperties}
             >
@@ -39,9 +39,8 @@ export default function Pricing({ dict }: { dict: Dictionary }) {
               <div className="plan-prices">
                 {plan.prices.map((price) => (
                   <p className="plan-price" key={price.amount + price.term}>
-                    <span className="plan-term">{price.term}</span>
-                    <span className="plan-equals" aria-hidden="true">=</span>
                     <bdi className="plan-amount">{price.amount}</bdi>
+                    <span className="plan-term">{price.term}</span>
                   </p>
                 ))}
               </div>
